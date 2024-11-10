@@ -1,0 +1,2 @@
+MLX_FLAGS = -Lminilibx-linux -lmlx_Linux -lX11 -lXext
+#flags pra compilar
