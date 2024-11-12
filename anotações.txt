@@ -10,3 +10,8 @@ run minilibx-linux/libmlx_Linux.a init_mlx.c main.c -Lminilibx-linux -lmlx_Linux
 
 
 primeiro tenho que colocar os sprites na tela, então ver o algoritmo que tenho que colocar para printar o mapa
+
+tenho que ficar limpando a tela em cada movimentação
+
+fazer structs contendo cada um seus elementos. Como por exemplo os elementos do mapa, player  jogo  e inimigos, e suas posições
+
