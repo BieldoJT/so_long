@@ -1,5 +1,8 @@
 {
 	"files.associations": {
-		"string": "c"
+		"string": "c",
+		"libft.h": "c",
+		"unistd.h": "c",
+		"so_long.h": "c"
 	}
 }
