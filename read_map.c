@@ -19,7 +19,7 @@ void verify_alloc(t_map *map_game)
 	}
 }
 
-void	verify_map(char *map, t_map *map_game)
+void	verify_new_line(char *map, t_map *map_game)
 {
 	int index;
 
@@ -46,7 +46,7 @@ void	verify_map(char *map, t_map *map_game)
 }
 
 
-void	get_map(char *argv, t_map *data)
+void	read_file(char *argv, t_map *data)
 {
 	char	*temp_map;
 	char	*line_temp;

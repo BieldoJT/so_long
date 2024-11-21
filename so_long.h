@@ -22,6 +22,24 @@ typedef struct s_mlx
 # define FALSE	0
 
 
+typedef struct s_contents
+{
+	void *image;
+	int	size_x;
+	int size_y;
+	int qtd;
+} t_content;
+
+typedef struct s_player
+{
+	void	*img_player;
+	int	img_size_x;
+	int	img_size_y;
+	int pos_x;
+	int	pos_y;
+};
+
+
 
 typedef struct s_map
 {
@@ -29,14 +47,19 @@ typedef struct s_map
 	int	rows_map;
 	int	columns_map;
 	int	map_alloc;
+	t_content	wall;
+	t_content	collectible;
+	t_content exit_map;
 }	t_map;
+
+
 
 
 char	*join_and_free(char *str_to_free, char *str_to_add);
 
 
-void	get_map(char *argv, t_map *data);
-void	verify_map(char *map, t_map *map_game);
+void	read_file(char *argv, t_map *data);
+void	verify_new_line(char *map, t_map *map_game);
 void	verify_alloc(t_map *map_game);
 
 void	error_map(char *message,t_map *map_game);

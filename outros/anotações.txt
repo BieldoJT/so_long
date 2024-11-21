@@ -20,3 +20,5 @@ partiu criar o mapa e fazer o makefile
 
 fazer funções para verificar se o arquivo está certo
 
+verificar o conteudo do mapa;
+
