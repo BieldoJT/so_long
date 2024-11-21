@@ -89,9 +89,9 @@ void	verify_content(t_map *map_game)
 {
 	if(map_game->collectible->qtd < 1)
 		error_map("Must have at least one collectible", map_game);
-	if(map_game->exit_map->qtd > 1)
+	else if(map_game->exit_map->qtd > 1)
 		error_map("Must have just one exit", map_game);
-	if(map_game->player->qtd > 1)
+	else if(map_game->player->qtd > 1)
 		error_map("Must have just one starting point", map_game);
 	
 }

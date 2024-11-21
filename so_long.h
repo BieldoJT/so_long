@@ -74,6 +74,8 @@ void	error_map(char *message,t_map *map_game);
 //verify_map.c
 void	init_var(t_map *map);
 void	check_walls(t_map *map_game);
+void	count_contents(t_map *map_game);
+void	verify_content(t_map *map_game);
 
 
 
