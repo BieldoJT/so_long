@@ -18,6 +18,7 @@ int main()
 		printf("%s\n", data.map[i]);
 
 	check_walls(&data);
+	init_var(&data);
 
 
 

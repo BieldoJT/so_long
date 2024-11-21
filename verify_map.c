@@ -23,10 +23,10 @@ void	init_var(t_map *map)
 	collectible.qtd = 0;
 	exit_map.qtd = 0;
 	player.qtd = 0;
-	map->wall = wall;
-	map->collectible = collectible;
-	map->exit_map = exit_map;
-	map->player = player;
+	map->wall = &wall;
+	map->collectible = &collectible;
+	map->exit_map = &exit_map;
+	map->player = &player;
 
 }
 
@@ -56,3 +56,44 @@ void	check_walls(t_map *map_game)
 		x++;
 	}
 }
+
+void	count_contents(t_map *map_game)
+{
+	int x;
+	int y;
+	
+	init_var(map_game);
+	x = 1;
+	while(x < map_game->rows_map - 1)
+	{
+		y = 1;
+		while (y < map_game->columns_map - 1)
+		{
+			if(map_game->map[x][y] == 'C')
+				map_game->collectible->qtd++;
+			if(map_game->map[x][y] == 'P')
+			{
+				map_game->player->pos_x = x;
+				map_game->player->pos_y = y;
+				map_game->player->qtd++;
+			}
+			if(map_game->map[x][y] == 'E')
+				map_game->exit_map->qtd++;
+			y++;
+		}
+		x++;
+	}
+}
+
+void	verify_content(t_map *map_game)
+{
+	if(map_game->collectible->qtd < 1)
+		error_map("Must have at least one collectible", map_game);
+	if(map_game->exit_map->qtd > 1)
+		error_map("Must have just one exit", map_game);
+	if(map_game->player->qtd > 1)
+		error_map("Must have just one starting point", map_game);
+	
+}
+
+

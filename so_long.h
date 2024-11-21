@@ -21,20 +21,24 @@ typedef struct s_mlx
 # define TRUE	1
 # define FALSE	0
 
-
-typedef struct s_contents
+typedef struct s_image
 {
 	void		*image;
 	int			size_x;
 	int			size_y;
+}	t_image;
+
+
+
+typedef struct s_contents
+{
+	t_image		img_content;
 	int			qtd;
 }	t_content;
 
 typedef struct s_player
 {
-	void		*img_player;
-	int			img_size_x;
-	int			img_size_y;
+	t_image		img_player;
 	int			pos_x;
 	int			pos_y;
 	int			qtd;
@@ -48,10 +52,10 @@ typedef struct s_map
 	int			rows_map;
 	int			columns_map;
 	int			map_alloc;
-	t_content	wall;
-	t_content	collectible;
-	t_content	exit_map;
-	t_player	player;
+	t_content	*wall;
+	t_content	*collectible;
+	t_content	*exit_map;
+	t_player	*player;
 }	t_map;
 
 
