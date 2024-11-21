@@ -1,6 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read_map.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/20 21:36:00 by gda-conc          #+#    #+#             */
+/*   Updated: 2024/11/20 22:50:20 by gda-conc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
-
-
 
 void verify_alloc(t_map *map_game)
 {
@@ -9,7 +19,7 @@ void verify_alloc(t_map *map_game)
 
 	i = 1;
 
-	map_game->columns_map = ft_strlen(map_game->map[0]);
+	map_game->columns_map = ft_strlen(map_game->map[0]); //get number of colluns!
 	len = map_game->columns_map;
 	while(i < map_game->rows_map)
 	{
@@ -65,36 +75,12 @@ void	read_file(char *argv, t_map *data)
 		data->rows_map++;
 	}
 	close(fd_map);
-	verify_map(temp_map, data);
+	verify_new_line(temp_map, data);
 	data->map = ft_split(temp_map, '\n');
 	data->map_alloc = TRUE;
 	free(line_temp);
 	free(temp_map);
 	verify_alloc(data);
-}
-
-
-
-int main()
-{
-    t_map data;
-    int i;
-
-
-
-    get_map("maps/map.ber", &data);
-
-    printf("Mapa carregado com sucesso!\n");
-    printf("Número de linhas: %d\n", data.rows_map);
-
-    // Exibir o mapa
-    for (i = 0; data.map[i]; i++) {
-        printf("%s\n", data.map[i]);
-        free(data.map[i]); // Liberar cada linha do mapa
-    }
-	free(data.map);
-
-    return (0);
 }
 
 

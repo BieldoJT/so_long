@@ -13,8 +13,8 @@
 
 typedef struct s_mlx
 {
-	void *mlx_ptr;
-	void *win_ptr;
+	void		*mlx_ptr;
+	void		*win_ptr;
 
 } t_mlx;
 
@@ -24,45 +24,54 @@ typedef struct s_mlx
 
 typedef struct s_contents
 {
-	void *image;
-	int	size_x;
-	int size_y;
-	int qtd;
-} t_content;
+	void		*image;
+	int			size_x;
+	int			size_y;
+	int			qtd;
+}	t_content;
 
 typedef struct s_player
 {
-	void	*img_player;
-	int	img_size_x;
-	int	img_size_y;
-	int pos_x;
-	int	pos_y;
-};
+	void		*img_player;
+	int			img_size_x;
+	int			img_size_y;
+	int			pos_x;
+	int			pos_y;
+	int			qtd;
+}	t_player;
 
 
 
 typedef struct s_map
 {
-	char	**map;
-	int	rows_map;
-	int	columns_map;
-	int	map_alloc;
+	char		**map;
+	int			rows_map;
+	int			columns_map;
+	int			map_alloc;
 	t_content	wall;
 	t_content	collectible;
-	t_content exit_map;
+	t_content	exit_map;
+	t_player	player;
 }	t_map;
 
 
 
-
+//utils.c
 char	*join_and_free(char *str_to_free, char *str_to_add);
 
-
+//read_map.c
 void	read_file(char *argv, t_map *data);
 void	verify_new_line(char *map, t_map *map_game);
 void	verify_alloc(t_map *map_game);
 
+//print_error.c
 void	error_map(char *message,t_map *map_game);
+
+//verify_map.c
+void	init_var(t_map *map);
+void	check_walls(t_map *map_game);
+
+
 
 int		init_create_win(t_mlx *data);
 

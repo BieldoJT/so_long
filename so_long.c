@@ -1,5 +1,5 @@
 #include "so_long.h"
-#include <stdio.h>
+
 
 /*
 int	main(int argc, char **argv)
@@ -15,3 +15,8 @@ int	main(int argc, char **argv)
 		//tratar esse erro!!!
 
 }*/
+int main(int argc, char **argv)
+{
+	t_map	map;
+	read_file(argv[1], &map);
+}
