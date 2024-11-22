@@ -7,11 +7,13 @@ int main()
 
 	game = malloc(sizeof(t_game));
     read_file("maps/map.ber", game);
-	init_var(game);
 
-    printf("Mapa carregado com sucesso!\n");
-    printf("Número de linhas: %d\n", game->map_game.rows_map);
+	printf("Mapa carregado com sucesso!\n");
+	printf("Número de linhas: %d\n", game->map_game.rows_map);
 	printf("Número de colunas: %d\n", game->map_game.columns_map);
+
+	init_var(game); //inicia as variaveis do map_game dentro do struct game
+
 
 
     // Exibir o mapa
