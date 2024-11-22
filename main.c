@@ -2,27 +2,27 @@
 
 int main()
 {
-    t_map data;
-    
+	t_game *game;
 
 
-
-    read_file("maps/map.ber", &data);
+	game = malloc(sizeof(t_game));
+    read_file("maps/map.ber", game);
+	init_var(game);
 
     printf("Mapa carregado com sucesso!\n");
-    printf("Número de linhas: %d\n", data.rows_map);
-	printf("Número de colunas: %d\n", data.columns_map);
+    printf("Número de linhas: %d\n", game->map_game.rows_map);
+	printf("Número de colunas: %d\n", game->map_game.columns_map);
 
-	
+
     // Exibir o mapa
 	int i;
-	for (i = 0; data.map[i]; i++)
-		printf("%s\n", data.map[i]);
-	
-	check_walls(&data);
-	init_var(&data);
-	count_contents(&data);
-	verify_content(&data);
+	for (i = 0; game->map_game.map[i]; i++)
+		printf("%s\n", game->map_game.map[i]);
+
+	check_walls(game);
+	//init_var(&data);
+	count_contents(game);
+	verify_content(game);
 
 
 

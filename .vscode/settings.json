@@ -3,6 +3,8 @@
 		"string": "c",
 		"libft.h": "c",
 		"unistd.h": "c",
-		"so_long.h": "c"
+		"so_long.h": "c",
+		"array": "c",
+		"string_view": "c"
 	}
 }
