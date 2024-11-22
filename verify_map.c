@@ -16,7 +16,7 @@ void	init_var(t_game *game)
 {
 	game->map_game.collectible = 0;
 	game->map_game.exit_map = 0;
-	game->map_game.player.qtd = 0;
+	game->map_game.player_qtd = 0;
 	game->movements = 0;
 	game->map_game.columns_map = ft_strlen(game->map_game.map[0]) - 1;
 
@@ -67,7 +67,7 @@ void	count_contents(t_game *game)
 			{
 				game->map_game.player.x = x;
 				game->map_game.player.y = y;
-				game->map_game.player.qtd++;
+				game->map_game.player_qtd++;
 			}
 			if(game->map_game.map[x][y] == 'E')
 				game->map_game.exit_map++;
@@ -81,11 +81,19 @@ void	verify_content(t_game *game)
 {
 	if(game->map_game.collectible < 1)
 		error_map("Must have at least one collectible", game);
-	else if(game->map_game.exit_map > 1)
+	else if(game->map_game.exit_map != 1)
 		error_map("Must have just one exit", game);
-	else if(game->map_game.player.qtd > 1)
+	else if(game->map_game.player_qtd != 1)
 		error_map("Must have just one starting point", game);
 
+}
+
+void	check_all_map(t_game *game)
+{
+	init_var(game);
+	check_walls(game);
+	count_contents(game);
+	verify_content(game);
 }
 
 

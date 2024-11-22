@@ -11,7 +11,7 @@ MINILIBX_FLAGS = -lmlx -lXext -lX11
 VALGRIND = @valgrind --leak-check=full --show-leak-kinds=all \
 --track-origins=yes --quiet --tool=memcheck --keep-debuginfo=yes
 
-SRCS = read_map.c print_error.c so_long_utils.c verify_map.c main.c
+SRCS = read_map.c print_error.c so_long_utils.c verify_map.c verify_path.c main.c
 
 
 all: ${LIBFT} ${NAME}

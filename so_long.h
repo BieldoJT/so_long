@@ -36,6 +36,7 @@ typedef struct s_contents
 	int			qtd;
 }	t_content;
 
+/*
 typedef struct s_player
 {
 	t_image		img_player;
@@ -43,12 +44,12 @@ typedef struct s_player
 	int			pos_y;
 	int			qtd;
 }	t_player;
+*/
 
 typedef struct s_position
 {
 	int	x;
 	int	y;
-	int	qtd;
 }	t_positon;
 
 typedef struct s_map
@@ -60,6 +61,7 @@ typedef struct s_map
 	int			wall;
 	int			collectible;
 	int			exit_map;
+	int			player_qtd;
 	t_positon	player;
 }	t_map;
 
@@ -89,13 +91,14 @@ void	verify_alloc(t_game *game);
 void	error_map(char *message,t_game *game);
 
 //verify_map.c
-void	init_var(t_game *map);
+void	init_var(t_game *map); //inicia as variaveis do map_game dentro do struct game
 void	check_walls(t_game *map_game);
 void	count_contents(t_game *map_game);
 void	verify_content(t_game *map_game);
+void	check_all_map(t_game *game);
 
-
-
+//verify_path.c
+char	**copy_map(t_game *game);
 
 
 #endif

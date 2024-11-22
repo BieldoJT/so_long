@@ -5,30 +5,28 @@ int main()
 	t_game *game;
 
 
+
 	game = malloc(sizeof(t_game));
+
+	
     read_file("maps/map.ber", game);
 
 	printf("Mapa carregado com sucesso!\n");
 	printf("Número de linhas: %d\n", game->map_game.rows_map);
 	printf("Número de colunas: %d\n", game->map_game.columns_map);
-
-	init_var(game); //inicia as variaveis do map_game dentro do struct game
-
-
-
+	
     // Exibir o mapa
 	int i;
 	for (i = 0; game->map_game.map[i]; i++)
 		printf("%s\n", game->map_game.map[i]);
 
-	check_walls(game);
-	//init_var(&data);
-	count_contents(game);
-	verify_content(game);
+	check_all_map(game);
 
-
-
-
+	//copy
+	printf("\n\n");
+	char **copy = copy_map(game);
+	for (i = 0; copy[i]; i++)
+		printf("%s\n", copy[i]);
 
 
 
