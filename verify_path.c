@@ -29,20 +29,38 @@ char	**copy_map(t_game *game)
 
 
 
-void	fill_map(char **tab, t_positon size, t_positon cur, char to_fill)
+void	fill_map(char **tab, t_positon size, t_positon cur)
 {
-	if (cur.y < 0 || cur.y >= size.y || cur.x < 0 || cur.x >= size.x
-			|| tab[cur.y][cur.x] != to_fill)
+	if (cur.y < 0 || cur.y >= size.y || cur.x < 0 || cur.x >= size.x)
+		return;
+	if (tab[cur.y][cur.x] == 1)
 		return;
 
-	tab[cur.y][cur.x] = 'P';
-	fill_map(tab, size, (t_positon){cur.x - 1, cur.y}, to_fill);
-	fill_map(tab, size, (t_positon){cur.x + 1, cur.y}, to_fill);
-	fill_map(tab, size, (t_positon){cur.x, cur.y - 1}, to_fill);
-	fill_map(tab, size, (t_positon){cur.x, cur.y + 1}, to_fill);
+	tab[cur.x][cur.y] = 'X';
+	cur.x -= 1;
+	fill_map(tab, size, cur);
+	cur.x += 1;
+	fill_map(tab, size, cur);
+	cur.y -= 1;
+	fill_map(tab, size, cur);
+	cur.y += 1;
+	fill_map(tab, size, cur);
 }
 
-void	get_path(char **tab, t_positon size, t_positon begin)
+void	get_path(char **tab, t_game *game)
 {
-	fill_map(tab, size, begin, tab[begin.y][begin.x]);
+	t_positon size;
+	t_positon begin;
+
+	size.x = game->map_game.columns_map;
+	size.y = game->map_game.rows_map;
+	begin.x = game->map_game.player.x;
+	begin.y = game->map_game.player.y;
+	fill_map(tab, size, begin);
 }
+/*
+void testmap(t_game *game)
+{
+	char **copia_map = copy_map(game);
+}
+*/

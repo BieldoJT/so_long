@@ -99,6 +99,8 @@ void	check_all_map(t_game *game);
 
 //verify_path.c
 char	**copy_map(t_game *game);
+void	get_path(char **tab, t_game *game);
+void	fill_map(char **tab, t_positon size, t_positon cur);
 
 
 #endif

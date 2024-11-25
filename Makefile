@@ -41,7 +41,7 @@ run: ${NAME}
 		${VALGRIND} ./${NAME} maps/map.ber
 
 test: ${LIBFT}
-		${CC} ${SRCS} ${LIBFT} ${CC_FLAGS} -o test
+		${CC} ${SRCS} ${LIBFT} ${CC_FLAGS} -g -o test
 		@echo "\ntest is compiled."
 		@echo
 

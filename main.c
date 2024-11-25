@@ -28,6 +28,13 @@ int main()
 	for (i = 0; copy[i]; i++)
 		printf("%s\n", copy[i]);
 
+	get_path(copy, game);
+
+	//copy
+	printf("\n\n");
+	for (i = 0; copy[i]; i++)
+		printf("%s\n", copy[i]);
+
 
 
 
