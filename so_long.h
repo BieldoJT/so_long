@@ -81,6 +81,7 @@ typedef struct s_game
 
 //utils.c
 char	*join_and_free(char *str_to_free, char *str_to_add);
+void	free_tab(char **tab);
 
 //read_map.c
 void	read_file(char *argv, t_game *data);
@@ -101,6 +102,7 @@ void	check_all_map(t_game *game);
 char	**copy_map(t_game *game);
 void	get_path(char **tab, t_game *game);
 void	fill_map(char **tab, t_positon size, t_positon cur);
+void	confirm_path(char **tab, t_game *game);
 
 
 #endif

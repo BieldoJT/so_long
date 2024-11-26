@@ -8,3 +8,13 @@ char *join_and_free(char *str_to_free, char *str_to_add)
 	free (str_to_free);
 	return (new_str);
 }
+
+void	free_tab(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while(tab[i])
+		free(tab[i++]);
+	free(tab);
+}

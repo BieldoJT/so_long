@@ -29,6 +29,7 @@ int main()
 		printf("%s\n", copy[i]);
 
 	get_path(copy, game);
+	confirm_path(copy,game);
 
 	//copy
 	printf("\n\n");

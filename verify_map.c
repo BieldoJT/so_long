@@ -42,7 +42,7 @@ void	check_walls(t_game *game)
 				error_map("wall is incomplete in the first row", game);
 			else if(x == (len_x - 1) && game->map_game.map[x][y] != '1') //checking last row
 				error_map("wall is incomplete in the last row", game);
-			else if((game->map_game.map[x][0] != '1') || (game->map_game.map[x][len_y - 1] != '1')) //checking sides
+			else if((game->map_game.map[x][0] != '1') || (game->map_game.map[x][len_y] != '1')) //checking sides
 				error_map("wall is incomplete in the sides", game);
 			y++;
 		}

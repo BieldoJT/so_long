@@ -60,3 +60,26 @@ void get_path(char **tab, t_game *game)
 	fill_map(tab, size, begin);//Preenche o mapa
 }
 
+void	confirm_path(char **tab, t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while(i < game->map_game.rows_map)
+	{
+		j = 0;
+		while (j < game->map_game.columns_map)
+		{
+			if (!(tab[i][j] == 'X' || tab[i][j] == '1'))
+			{
+				free_tab(tab);
+				error_map("Map has an invalid path", game);
+			}
+			j++;
+		}
+		i++;
+	}
+	printf("DEU CERTOO CARALHO");
+}
+

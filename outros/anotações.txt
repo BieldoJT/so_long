@@ -21,4 +21,15 @@ partiu criar o mapa e fazer o makefile
 fazer funções para verificar se o arquivo está certo
 
 verificar o conteudo do mapa;
+VERIFICAR SE TEM QUALQUER COISA DIFERANTE DE :
+	saida
+	coletavel
+	posição inicial
+
+	
+
+
+tratar a quantidade de colunas e linhas, o mapa deve ser retangular
+não usar a printf pra pritar erro"!!!!!!!! corrigir
+
 
