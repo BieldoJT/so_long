@@ -8,13 +8,13 @@ int main()
 
 	game = malloc(sizeof(t_game));
 
-	
+
     read_file("maps/map.ber", game);
 
 	printf("Mapa carregado com sucesso!\n");
 	printf("Número de linhas: %d\n", game->map_game.rows_map);
 	printf("Número de colunas: %d\n", game->map_game.columns_map);
-	
+
     // Exibir o mapa
 	int i;
 	for (i = 0; game->map_game.map[i]; i++)
