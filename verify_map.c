@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 21:41:49 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/11/22 00:37:54 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/11/27 22:04:43 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	init_var(t_game *game)
 	game->map_game.exit_map = 0;
 	game->map_game.player_qtd = 0;
 	game->movements = 0;
-	game->map_game.columns_map = ft_strlen(game->map_game.map[0]) - 1;
+	game->map_game.columns_map = ft_strlen(game->map_game.map[0]);
 
 
 }
@@ -42,7 +42,7 @@ void	check_walls(t_game *game)
 				error_map("wall is incomplete in the first row", game);
 			else if(x == (len_x - 1) && game->map_game.map[x][y] != '1') //checking last row
 				error_map("wall is incomplete in the last row", game);
-			else if((game->map_game.map[x][0] != '1') || (game->map_game.map[x][len_y] != '1')) //checking sides
+			else if((game->map_game.map[x][0] != '1') || (game->map_game.map[x][len_y - 1] != '1')) //checking sides
 				error_map("wall is incomplete in the sides", game);
 			y++;
 		}
@@ -79,6 +79,8 @@ void	count_contents(t_game *game)
 
 void	verify_content(t_game *game)
 {
+	if ((game->map_game.columns_map <= 2) || (game->map_game.rows_map <= 2))// Valida o tamanho
+		error_map("Map has an invalid aaaa", game);
 	if(game->map_game.collectible < 1)
 		error_map("Must have at least one collectible", game);
 	else if(game->map_game.exit_map != 1)

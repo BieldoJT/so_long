@@ -48,15 +48,16 @@ void get_path(char **tab, t_game *game)
 	t_positon size;
 	t_positon begin;
 
-	if (game->map_game.columns_map <= 2 || game->map_game.rows_map <= 2)// Valida o tamanho
-		return; //TRATAR ERRO, FAZER FUNÇÃO QUE DE FREE NOS DOIS MAPAS
 	size.x = game->map_game.columns_map;
 	size.y = game->map_game.rows_map;
 	begin.x = game->map_game.player.y;// Valida e pega a posição inicial
 	begin.y = game->map_game.player.x;
-	if (begin.x < 0 || begin.x >= size.x || begin.y < 0 || begin.y >= size.y)
-		return; // Começa no lugar errado
-		//TRATAR ERRO, FAZER FUNÇÃO QUE DE FREE NOS DOIS MAPAS
+	if (begin.x < 0 || begin.x >= size.x || begin.y < 0 || begin.y >= size.y) // Começa no lugar errado
+	{
+		free_tab(tab);
+		error_map("Map has an invalid start", game);		//FAZER FUNÇÃO QUE DE FREE NOS DOIS MAPAS //não sei se pega aqui
+	}
+
 	fill_map(tab, size, begin);//Preenche o mapa
 }
 
@@ -71,7 +72,12 @@ void	confirm_path(char **tab, t_game *game)
 		j = 0;
 		while (j < game->map_game.columns_map)
 		{
-			if (!(tab[i][j] == 'X' || tab[i][j] == '1'))
+			if(!(ft_strchr("01CEP",game->map_game.map[i][j]))) //verifica no mapa original se tem algum caracter diferente
+			{
+				free_tab(tab);
+				error_map("Map has an invalid caracter", game);
+			}
+			if (!(tab[i][j] == 'X' || tab[i][j] == '1' || tab[i][j] == '0')) //botei o zero pois ha caminho valido se tiver ele
 			{
 				free_tab(tab);
 				error_map("Map has an invalid path", game);
