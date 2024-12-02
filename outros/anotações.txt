@@ -33,3 +33,6 @@ tratar a quantidade de colunas e linhas, o mapa deve ser retangular
 não usar a printf pra pritar erro"!!!!!!!! CORRIGIR!!!!!!!!!!!!!!!
 
 
+imagem player 48x48
+
+

@@ -25,11 +25,6 @@ typedef struct s_image
 
 
 
-
-
-
-
-
 typedef struct s_contents
 {
 	t_image		img_content;
