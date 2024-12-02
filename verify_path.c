@@ -86,6 +86,7 @@ void	confirm_path(char **tab, t_game *game)
 		}
 		i++;
 	}
-	printf("DEU CERTOO CARALHO");
+	free_tab(tab); //NA VERSÃO FINAL, DESCOMENTAR
+	printf("DEU CERTOO CARALHO\n");// so pra confirmar q passou
 }
 

@@ -6,11 +6,25 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 21:36:00 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/11/22 00:29:34 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:29:17 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	ft_check_command_line_arguments(int argc, char **argv, t_game *game)
+{
+	int	map_parameter_len;
+
+	game->map_game.map_alloc = FALSE;
+	if (argc > 2)
+		error_map("Too many arguments (It should be only two).", game);
+	if (argc < 2)
+		error_map("The Map file is missing.", game);
+	map_parameter_len = ft_strlen(argv[1]);
+	if (!ft_strnstr(&argv[1][map_parameter_len - 4], ".ber", 4))
+		error_map("Map file extention is wrong (It should be .ber).", game);
+}
 
 void verify_alloc(t_game *game)
 {
@@ -64,6 +78,8 @@ void	read_file(char *argv, t_game *game)
 
 	game->map_game.rows_map = 0;
 	fd_map = open(argv,O_RDONLY);
+	if(fd_map == -1)
+		error_map("The file couldn't be opened. verify name or if the file exists", game);
 	temp_map = ft_strdup("");
 	while(TRUE)
 	{

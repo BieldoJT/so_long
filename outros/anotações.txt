@@ -8,29 +8,18 @@ run minilibx-linux/libmlx_Linux.a init_mlx.c main.c -Lminilibx-linux -lmlx_Linux
 
 
 
-
 primeiro tenho que colocar os sprites na tela, então ver o algoritmo que tenho que colocar para printar o mapa
 
 tenho que ficar limpando a tela em cada movimentação
 
-fazer structs contendo cada um seus elementos. Como por exemplo os elementos do mapa, player  jogo  e inimigos, e suas posições
+fazer structs contendo cada um seus elementos. Como por exemplo os elementos do mapa, player  jogo  e inimigos, e suas posiçõe
 
+NÃO ESTOU MAIS USANDO O TEST, JA ESTOU USANDO O MAKE NORMALMENTE
 
-partiu criar o mapa e fazer o makefile
+arrumações:
+	iniciar os sprites, ver no struct.
+	renderizar o mapa na janela.
 
-fazer funções para verificar se o arquivo está certo PRIORIDADEEEE
-
-verificar o conteudo do mapa;
-VERIFICAR SE TEM QUALQUER COISA DIFERANTE DE :
-	saida
-	coletavel
-	posição inicial
-
-
-
-
-tratar a quantidade de colunas e linhas, o mapa deve ser retangular
-não usar a printf pra pritar erro"!!!!!!!! CORRIGIR!!!!!!!!!!!!!!!
 
 
 imagem player 48x48

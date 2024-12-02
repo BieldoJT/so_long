@@ -16,20 +16,7 @@
 # define TRUE	1
 # define FALSE	0
 
-typedef struct s_image
-{
-	void		*image;
-	int			size_x;
-	int			size_y;
-}	t_image;
 
-
-
-typedef struct s_contents
-{
-	t_image		img_content;
-	int			qtd;
-}	t_content;
 
 /*
 typedef struct s_player
@@ -60,6 +47,13 @@ typedef struct s_map
 	t_positon	player;
 }	t_map;
 
+typedef struct s_image
+{
+	void		*img_ptr;
+	int			size_x;
+	int			size_y;
+}	t_image;
+
 typedef struct s_game
 {
 	void		*mlx_ptr;
@@ -67,9 +61,9 @@ typedef struct s_game
 	int			movements;
 	t_map		map_game;
 	t_image		wall;
-	t_image		collectible;
-	t_image		exit_map;
-	t_image		player;
+	//t_image		collectible;
+	//t_image		exit_map;
+	//t_image		player;
 }	t_game;
 
 
@@ -79,12 +73,14 @@ char	*join_and_free(char *str_to_free, char *str_to_add);
 void	free_tab(char **tab);
 
 //read_map.c
+void	ft_check_command_line_arguments(int argc, char **argv, t_game *game);
 void	read_file(char *argv, t_game *data);
 void	verify_new_line(char *map, t_game *game);
 void	verify_alloc(t_game *game);
 
 //print_error.c
 void	error_map(char *message,t_game *game);
+void	error_mlx(char *message, t_game *game);
 
 //verify_map.c
 void	init_var(t_game *map); //inicia as variaveis do map_game dentro do struct game
@@ -99,5 +95,9 @@ void	get_path(char **tab, t_game *game);
 void	fill_map(char **tab, t_positon size, t_positon cur);
 void	confirm_path(char **tab, t_game *game);
 
+//start_game.c
+void	init_mlx(t_game *game);
+t_image	get_img(void *mlx, char *path, t_game *game);
+void	init_sprites(t_game *game);
 
 #endif
