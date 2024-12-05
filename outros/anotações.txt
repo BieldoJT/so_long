@@ -22,6 +22,6 @@ arrumações:
 
 
 
-imagem player 48x48
+botar o sprite do personagem no sprtite floor nas direções que tem
 
 

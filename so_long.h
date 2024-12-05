@@ -54,6 +54,15 @@ typedef struct s_image
 	int			size_y;
 }	t_image;
 
+typedef struct s_player
+{
+	t_image	cima;
+	t_image	baixo;
+	t_image	direita;
+	t_image	esquerda;
+}	t_player;
+
+
 typedef struct s_game
 {
 	void		*mlx_ptr;
@@ -61,9 +70,10 @@ typedef struct s_game
 	int			movements;
 	t_map		map_game;
 	t_image		wall;
+	t_image		floor;
 	//t_image		collectible;
 	//t_image		exit_map;
-	t_image		player;
+	t_player	player;
 }	t_game;
 
 
