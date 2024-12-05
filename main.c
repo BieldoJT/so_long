@@ -1,4 +1,12 @@
 #include "so_long.h"
+int printa(int keycode,t_game *game)
+{
+	printf("%d\n", keycode);
+	mlx_put_image_to_window(game->mlx_ptr,game->win_ptr,game->player.img_ptr,((game->map_game.columns_map - 1) * 32),((game->map_game.rows_map - 1) * 32));
+
+
+	return 0;
+}
 
 int destroy_everything(t_game *game)
 {
@@ -49,6 +57,9 @@ int main(int argc, char **argv)
 	init_mlx(game);
 	init_sprites(game);
 
+	mlx_put_image_to_window(game->mlx_ptr,game->win_ptr,game->wall.img_ptr,((game->map_game.columns_map - 1) * 32),((game->map_game.rows_map - 1) * 32));
+	//mlx_put_image_to_window(game->mlx_ptr,game->win_ptr,game->player.img_ptr,((game->map_game.columns_map - 1) * 32),((game->map_game.rows_map - 1) * 32));
+	mlx_key_hook(game->win_ptr,printa, game);
 	mlx_hook(game->win_ptr, 17, 0, destroy_everything, game);
 	mlx_loop(game->mlx_ptr);
 

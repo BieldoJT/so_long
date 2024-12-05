@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:29:20 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/02 15:28:28 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/05 00:17:39 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ void	init_sprites(t_game *game)
 	void *mlx;
 
 	mlx = game->mlx_ptr;
-	game->wall = get_img(mlx, "/texture/walls.xpm", game);
+	game->wall = get_img(mlx, "textures/wall.xpm", game);
+	game->player = get_img(mlx, "textures/player/parado/cima/Player_Parado_Cima1.xpm", game);
 }

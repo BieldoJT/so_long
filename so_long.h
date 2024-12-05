@@ -63,7 +63,7 @@ typedef struct s_game
 	t_image		wall;
 	//t_image		collectible;
 	//t_image		exit_map;
-	//t_image		player;
+	t_image		player;
 }	t_game;
 
 
