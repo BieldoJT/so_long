@@ -57,9 +57,9 @@ typedef struct s_image
 typedef struct s_player
 {
 	t_image	cima;
-	t_image	baixo;
-	t_image	direita;
-	t_image	esquerda;
+	//t_image	baixo;
+	//t_image	direita;
+	//t_image	esquerda;
 }	t_player;
 
 
@@ -71,8 +71,9 @@ typedef struct s_game
 	t_map		map_game;
 	t_image		wall;
 	t_image		floor;
-	//t_image		collectible;
-	//t_image		exit_map;
+	t_image		collectible;
+	t_image		exit_open;
+	t_image		exit_close;
 	t_player	player;
 }	t_game;
 
@@ -109,5 +110,9 @@ void	confirm_path(char **tab, t_game *game);
 void	init_mlx(t_game *game);
 t_image	get_img(void *mlx, char *path, t_game *game);
 void	init_sprites(t_game *game);
+
+//render_map.c
+void	render(t_game *game);
+void	put_to_window(t_game *game, char element, int row, int col);
 
 #endif

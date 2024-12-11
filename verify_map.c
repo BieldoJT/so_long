@@ -18,6 +18,7 @@ void	init_var(t_game *game)
 	game->map_game.exit_map = 0;
 	game->map_game.player_qtd = 0;
 	game->movements = 0;
+	
 	game->map_game.columns_map = ft_strlen(game->map_game.map[0]);
 
 

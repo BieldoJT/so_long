@@ -56,4 +56,9 @@ void	init_sprites(t_game *game)
 	game->wall = get_img(mlx, "textures/wall.xpm", game);
 	game->player.cima = get_img(mlx, "textures/player/parado/cima/Player_Parado_Cima.xpm", game);
 	game->floor = get_img(mlx,"textures/floor.xpm",game);
+	game->exit_open = get_img(mlx,"textures/open_door.xpm", game);
+	game->exit_close = get_img(mlx, "textures/closed_door.xpm", game);
+	game->collectible = get_img(mlx,"textures/coletible/chicken.xpm", game);
 }
+
+//talvez criar função pra pegar os sprites 

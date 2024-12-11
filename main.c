@@ -1,5 +1,5 @@
 #include "so_long.h"
-int printa(int keycode,t_game *game)
+/*int printa(int keycode,t_game *game)
 {
 	t_player pos;
 
@@ -10,7 +10,7 @@ int printa(int keycode,t_game *game)
 
 
 	return 0;
-}
+}*/
 
 int destroy_everything(t_game *game)
 {
@@ -51,19 +51,19 @@ int main(int argc, char **argv)
 
 	get_path(copy, game);
 	confirm_path(copy,game);
+	
 	/*				// descomentar no confirm_path!!!!
 	//copy
 	printf("\n\n");
 	for (i = 0; copy[i]; i++)
 		printf("%s\n", copy[i]);*/
 
-
 	init_mlx(game);
 	init_sprites(game);
 
-	mlx_put_image_to_window(game->mlx_ptr,game->win_ptr,game->floor.img_ptr,((game->map_game.columns_map - 1) * 32),((game->map_game.rows_map - 1) * 32));
-	//mlx_put_image_to_window(game->mlx_ptr,game->win_ptr,game->player.img_ptr,((game->map_game.columns_map - 1) * 32),((game->map_game.rows_map - 1) * 32));
-	mlx_key_hook(game->win_ptr,printa, game);
+	render(game);
+
+
 	mlx_hook(game->win_ptr, 17, 0, destroy_everything, game);
 	mlx_loop(game->mlx_ptr);
 
