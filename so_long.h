@@ -16,6 +16,13 @@
 # define TRUE	1
 # define FALSE	0
 
+//numbers keysym keyboard
+# define KEY_W	119
+# define KEY_S	115
+# define KEY_A	97
+# define KEY_D	100
+
+
 
 
 /*
@@ -112,7 +119,7 @@ t_image	get_img(void *mlx, char *path, t_game *game);
 void	init_sprites(t_game *game);
 
 //render_map.c
-void	render(t_game *game);
+int	render(t_game *game);
 void	put_to_window(t_game *game, char element, int row, int col);
 
 #endif

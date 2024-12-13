@@ -28,7 +28,7 @@ void	put_to_window(t_game *game, char element, int row, int col)
 	mlx_put_image_to_window(mlx,win,img_ptr, (col * 32), (row * 32));
 }
 
-void	render(t_game *game)
+int	render(t_game *game)
 {
 	char	**map;
 	int	col;
@@ -50,6 +50,7 @@ void	render(t_game *game)
 		}
 		i++;
 	}
+	return 0;
 	
 
 }

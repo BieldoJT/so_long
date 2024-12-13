@@ -12,6 +12,15 @@
 	return 0;
 }*/
 
+int get_key(int keysym, t_game *game)
+{
+	printf("%d", keysym);
+	//mlx_clear_window(game->mlx_ptr, game->win_ptr);
+	render(game);
+	
+	return 0;
+}
+
 int destroy_everything(t_game *game)
 {
 	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
@@ -55,7 +64,7 @@ int main(int argc, char **argv)
 	/*				// descomentar no confirm_path!!!!
 	//copy
 	printf("\n\n");
-	for (i = 0; copy[i]; i++)
+	for (i = 0; copy[i]; i++)d
 		printf("%s\n", copy[i]);*/
 
 	init_mlx(game);
@@ -63,7 +72,7 @@ int main(int argc, char **argv)
 
 	render(game);
 
-
+	mlx_hook(game->win_ptr,KeyPress,KeyPressMask, get_key, game);
 	mlx_hook(game->win_ptr, 17, 0, destroy_everything, game);
 	mlx_loop(game->mlx_ptr);
 
