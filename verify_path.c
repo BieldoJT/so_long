@@ -89,7 +89,16 @@ void	confirm_path(char **tab, t_game *game)
 		}
 		i++;
 	}
-	free_tab(tab); //NA VERSÃO FINAL, DESCOMENTAR
-	printf("DEU CERTOO CARALHO\n");// so pra confirmar q passou
+	free_tab(tab);
+	printf("DEU CERTOO CARALHO\n");// so pra confirmar q passou apagar depois
+}
+
+void	check_path(t_game *game)
+{
+	char **copy;
+
+	copy = copy_map(game);
+	get_path(copy, game);
+	confirm_path(copy,game);
 }
 

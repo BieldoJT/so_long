@@ -61,4 +61,4 @@ void	init_sprites(t_game *game)
 	game->collectible = get_img(mlx,"textures/coletible/chicken.xpm", game);
 }
 
-//talvez criar função pra pegar os sprites 
+

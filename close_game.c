@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-void destroy_everything(t_game *game)
+int	destroy_everything(t_game *game)
 {
 	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	free_tab(game->map_game.map);
@@ -8,6 +8,5 @@ void destroy_everything(t_game *game)
 	free(game->mlx_ptr);
 	free(game);
 	exit(0);
-
-	return 0;
+	return (0);
 }

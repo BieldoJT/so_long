@@ -26,7 +26,6 @@ void move_player(t_game *game, int pos_x, int pos_y)
 	game->map_game.player.y = pos_y;
 	game->movements++;
 }
-//FAZER FUNÇÃO PARA ANDAAAARRRRRR
 
 int	input_game(int keysym, t_game *game)
 {
@@ -35,6 +34,9 @@ int	input_game(int keysym, t_game *game)
 
 	pos_player_y = game->map_game.player.y;
 	pos_player_x = game->map_game.player.x;
+	if (keysym == ESC)
+		destroy_everything(game); 
+
 	if (keysym == KEY_W)
 		move_player(game,pos_player_x - 1, pos_player_y);
 	if (keysym == KEY_S)
@@ -43,7 +45,6 @@ int	input_game(int keysym, t_game *game)
 		move_player(game,pos_player_x, pos_player_y + 1);
 	if (keysym == KEY_A)
 		move_player(game,pos_player_x, pos_player_y - 1);
-	mlx_clear_window(game->mlx_ptr, game->win_ptr);
 	render(game);
 	return 0;
 

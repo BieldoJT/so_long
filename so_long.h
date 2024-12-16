@@ -21,6 +21,7 @@
 # define KEY_S	115
 # define KEY_A	97
 # define KEY_D	100
+# define ESC	65307
 
 
 
@@ -112,6 +113,7 @@ char	**copy_map(t_game *game);
 void	get_path(char **tab, t_game *game);
 void	fill_map(char **tab, t_positon size, t_positon cur);
 void	confirm_path(char **tab, t_game *game);
+void	check_path(t_game *game);
 
 //start_game.c
 void	init_mlx(t_game *game);
@@ -119,11 +121,14 @@ t_image	get_img(void *mlx, char *path, t_game *game);
 void	init_sprites(t_game *game);
 
 //render_map.c
-int	render(t_game *game);
+int		render(t_game *game);
 void	put_to_window(t_game *game, char element, int row, int col);
 
 //play_game
-void move_player(t_game *game, int pos_x, int pos_y);
-int	input_game(int keysym, t_game *game);
+void	move_player(t_game *game, int pos_x, int pos_y);
+int		input_game(int keysym, t_game *game);
+
+//close_game.c
+int		destroy_everything(t_game *game);
 
 #endif
