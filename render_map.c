@@ -30,27 +30,26 @@ void	put_to_window(t_game *game, char element, int row, int col)
 
 int	render(t_game *game)
 {
-	char	**map;
-	int	col;
-	int row;
-	int i;
-	int j;
+	int		i;
+	int		j;
+	char	*print_moviments;
+	char	*str_num;
 
-	map = game->map_game.map;
-	row = game->map_game.rows_map - 1;
-	col = game->map_game.columns_map - 1;
 	i = 0;
-	while(i <= row)
+	while(i <= game->map_game.rows_map - 1)
 	{
 		j = 0;
-		while (j <= col)
+		while (j <= game->map_game.columns_map - 1)
 		{
-			put_to_window(game, map[i][j], i, j);
+			put_to_window(game, game->map_game.map[i][j], i, j);
 			j++;
 		}
 		i++;
 	}
-	return 0;
-	
-
+	str_num = ft_itoa(game->movements);
+	print_moviments = ft_strjoin("Moviments: ", str_num);
+	mlx_string_put(game->mlx_ptr,game->win_ptr,10,10,1,print_moviments);
+	free(str_num);
+	free(print_moviments);
+	return (0);
 }

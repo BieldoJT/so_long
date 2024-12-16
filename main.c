@@ -72,7 +72,8 @@ int main(int argc, char **argv)
 
 	render(game);
 
-	mlx_hook(game->win_ptr,KeyPress,KeyPressMask, get_key, game);
+	//mlx_hook(game->win_ptr,KeyPress,KeyPressMask, input_game, game);
+	mlx_key_hook(game->win_ptr,input_game,game);
 	mlx_hook(game->win_ptr, 17, 0, destroy_everything, game);
 	mlx_loop(game->mlx_ptr);
 

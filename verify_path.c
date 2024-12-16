@@ -31,9 +31,12 @@ char	**copy_map(t_game *game)
 
 void	fill_map(char **tab, t_positon size, t_positon cur)
 {
+	char item;
+
+	item = tab[cur.y][cur.x];
 	if (cur.y < 0 || cur.y >= size.y || cur.x < 0 || cur.x >= size.x)// Verifica se ta na borda
 		return;
-	if (tab[cur.y][cur.x] == '1' || tab[cur.y][cur.x] == 'X') // não faz nada se for 1 ou X
+	if (item == '1' || item == 'X' || item == 'E') // não faz nada se for 1 , X ou E
 		return;
 	tab[cur.y][cur.x] = 'X';// Muda a posição atual
 	t_positon next;
@@ -77,7 +80,7 @@ void	confirm_path(char **tab, t_game *game)
 				free_tab(tab);
 				error_map("Map has an invalid caracter", game);
 			}
-			if (!(tab[i][j] == 'X' || tab[i][j] == '1' || tab[i][j] == '0')) //botei o zero pois ha caminho valido se tiver ele
+			if (!(tab[i][j] == 'X' || tab[i][j] == '1' || tab[i][j] == '0' || tab[i][j] == 'E')) //botei o zero pois ha caminho valido se tiver ele
 			{
 				free_tab(tab);
 				error_map("Map has an invalid path", game);

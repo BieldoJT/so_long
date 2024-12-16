@@ -122,4 +122,8 @@ void	init_sprites(t_game *game);
 int	render(t_game *game);
 void	put_to_window(t_game *game, char element, int row, int col);
 
+//play_game
+void move_player(t_game *game, int pos_x, int pos_y);
+int	input_game(int keysym, t_game *game);
+
 #endif
