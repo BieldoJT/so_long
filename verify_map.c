@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 21:41:49 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/11/27 22:04:43 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/17 23:22:37 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,15 @@ void	init_var(t_game *game)
 	game->map_game.exit_map = 0;
 	game->map_game.player_qtd = 0;
 	game->movements = 0;
-	
 	game->map_game.columns_map = ft_strlen(game->map_game.map[0]);
-
-
 }
 
 void	check_walls(t_game *game)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 	int	len_x;
-	int len_y;
+	int	len_y;
 
 	len_x = game->map_game.rows_map;
 	len_y = game->map_game.columns_map;
@@ -53,8 +50,8 @@ void	check_walls(t_game *game)
 
 void	count_contents(t_game *game)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = 1;
 	while(x < game->map_game.rows_map - 1)
@@ -88,7 +85,6 @@ void	verify_content(t_game *game)
 		error_map("Must have just one exit", game);
 	else if(game->map_game.player_qtd != 1)
 		error_map("Must have just one starting point", game);
-
 }
 
 void	check_all_map(t_game *game)

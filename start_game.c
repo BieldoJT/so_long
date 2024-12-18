@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:29:20 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/05 02:01:54 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/17 23:22:47 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	init_mlx(t_game *game)
 
 t_image	get_img(void *mlx, char *path, t_game *game)
 {
-	t_image img;
+	t_image	img;
 
 	img.img_ptr = mlx_xpm_file_to_image(mlx, path ,&img.size_x, &img.size_y);
 	if (img.img_ptr == NULL)
@@ -49,12 +49,12 @@ t_image	get_img(void *mlx, char *path, t_game *game)
 
 void	init_sprites(t_game *game)
 {
-	void *mlx;
+	void	*mlx;
 
 
 	mlx = game->mlx_ptr;
 	game->wall = get_img(mlx, "textures/wall.xpm", game);
-	game->player.cima = get_img(mlx, "textures/player/parado/cima/Player_Parado_Cima.xpm", game);
+	game->player = get_img(mlx, "textures/player/parado/cima/Player_Parado_Cima.xpm", game);
 	game->floor = get_img(mlx,"textures/floor.xpm",game);
 	game->exit_open = get_img(mlx,"textures/open_door.xpm", game);
 	game->exit_close = get_img(mlx, "textures/closed_door.xpm", game);

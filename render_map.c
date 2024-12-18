@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   render_map.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/17 23:18:37 by gda-conc          #+#    #+#             */
+/*   Updated: 2024/12/17 23:18:38 by gda-conc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 
@@ -23,7 +35,7 @@ void	put_to_window(t_game *game, char element, int row, int col)
 			img_ptr = game->exit_open.img_ptr;
 	}
 	if(element == 'P')
-		img_ptr = game->player.cima.img_ptr;
+		img_ptr = game->player.img_ptr;
 
 	mlx_put_image_to_window(mlx,win,img_ptr, (col * 32), (row * 32));
 }

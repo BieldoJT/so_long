@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 21:36:07 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/02 15:25:25 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/17 23:23:15 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	error_map(char *message,t_game *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	ft_putstr_fd("Error\n",2);

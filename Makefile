@@ -25,27 +25,11 @@ ${NAME}:
 ${LIBFT}:
 		make bonus -C libraries/Libft
 
-ll:
-	make bonus -C libraries/Libft
-
 clean:
 		make clean -C libraries/Libft
 
-fclean:
+fclean: clean
 		rm -rf ${NAME}
 
 re: fclean all
 
-run: ${NAME}
-		#colocar a pasta do mapa aqui
-		${VALGRIND} ./${NAME} maps/map.ber
-
-test: ${LIBFT}
-		${CC} ${SRCS} ${LIBFT} ${CC_FLAGS} -g -o test
-		@echo "\ntest is compiled."
-		@echo
-
-clear_test:
-		rm -rf ./test
-
-re_test: clear_test test

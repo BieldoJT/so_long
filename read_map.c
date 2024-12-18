@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 21:36:00 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/02 13:29:17 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/17 23:21:59 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,10 @@ void	ft_check_command_line_arguments(int argc, char **argv, t_game *game)
 
 void verify_alloc(t_game *game)
 {
-	int i;
-	size_t len;
+	int		i;
+	size_t	len;
 
 	i = 1;
-
 	game->map_game.columns_map = ft_strlen(game->map_game.map[0]); //get number of colluns!
 	len = game->map_game.columns_map;
 	while(i < game->map_game.rows_map)
@@ -45,7 +44,7 @@ void verify_alloc(t_game *game)
 
 void	verify_new_line(char *map, t_game *game)
 {
-	int index;
+	int	index;
 
 	index = 0;
 	if(map[0] == '\n')

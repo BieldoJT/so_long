@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/17 23:18:40 by gda-conc          #+#    #+#             */
+/*   Updated: 2024/12/17 23:19:51 by gda-conc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
-
 
 # include "minilibx-linux/mlx.h"
 # include <unistd.h>
@@ -11,8 +22,6 @@
 # include "libraries/Libft/libft.h"
 # include <stdio.h>
 
-
-
 # define TRUE	1
 # define FALSE	0
 
@@ -22,19 +31,6 @@
 # define KEY_A	97
 # define KEY_D	100
 # define ESC	65307
-
-
-
-
-/*
-typedef struct s_player
-{
-	t_image		img_player;
-	int			pos_x;
-	int			pos_y;
-	int			qtd;
-}	t_player;
-*/
 
 typedef struct s_position
 {
@@ -62,15 +58,6 @@ typedef struct s_image
 	int			size_y;
 }	t_image;
 
-typedef struct s_player
-{
-	t_image	cima;
-	//t_image	baixo;
-	//t_image	direita;
-	//t_image	esquerda;
-}	t_player;
-
-
 typedef struct s_game
 {
 	void		*mlx_ptr;
@@ -82,10 +69,8 @@ typedef struct s_game
 	t_image		collectible;
 	t_image		exit_open;
 	t_image		exit_close;
-	t_player	player;
+	t_image		player;
 }	t_game;
-
-
 
 //utils.c
 char	*join_and_free(char *str_to_free, char *str_to_add);
@@ -129,6 +114,6 @@ void	move_player(t_game *game, int pos_x, int pos_y);
 int		input_game(int keysym, t_game *game);
 
 //close_game.c
-int		destroy_everything(t_game *game);
+int		destroy_mlx_and_game(t_game *game);
 
 #endif
