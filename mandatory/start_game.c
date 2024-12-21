@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:29:20 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/17 23:22:47 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/21 18:02:19 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	init_sprites(t_game *game)
 	game->exit_open = get_img(mlx,"textures/open_door.xpm", game);
 	game->exit_close = get_img(mlx, "textures/closed_door.xpm", game);
 	game->collectible = get_img(mlx,"textures/coletible/chicken.xpm", game);
+	//game->enemy = get_img(mlx,"textures/enemy/enemy.xpm", game); // bonus
 }
 
 

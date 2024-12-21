@@ -6,6 +6,8 @@
 		"so_long.h": "c",
 		"array": "c",
 		"string_view": "c",
-		"*.tcc": "c"
+		"*.tcc": "c",
+		"fcntl.h": "c",
+		"mlx.h": "c"
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:37 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/17 23:18:38 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/21 18:03:22 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	render(t_game *game)
 	}
 	str_num = ft_itoa(game->movements);
 	print_moviments = ft_strjoin("Moviments: ", str_num);
-	mlx_string_put(game->mlx_ptr,game->win_ptr,10,10,0x34cfeb,print_moviments);
+	//mlx_string_put(game->mlx_ptr,game->win_ptr,10,10,0x34cfeb,print_moviments); //bonus
 	ft_printf("%s\n",print_moviments);
 	free(str_num);
 	free(print_moviments);

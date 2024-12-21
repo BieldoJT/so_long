@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:40 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/17 23:19:51 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/21 18:42:21 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
-# include "minilibx-linux/mlx.h"
+# include "../minilibx-linux/mlx.h"
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
-# include "libraries/Libft/libft.h"
+# include "../libraries/Libft/libft.h"
 # include <stdio.h>
 
 # define TRUE	1
@@ -70,6 +70,7 @@ typedef struct s_game
 	t_image		exit_open;
 	t_image		exit_close;
 	t_image		player;
+	t_image		enemy;
 }	t_game;
 
 //utils.c
