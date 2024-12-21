@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:37 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/21 18:42:31 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/21 19:58:27 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void	put_to_window(t_game *game, char element, int row, int col)
 	}
 	if(element == 'P')
 		img_ptr = game->player.img_ptr;
-
+	if(element == 'G')
+		img_ptr = game->enemy.img_ptr;
 	mlx_put_image_to_window(mlx,win,img_ptr, (col * 32), (row * 32));
 }
 

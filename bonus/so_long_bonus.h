@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:40 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/21 19:23:55 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/21 20:17:47 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,5 +124,6 @@ int		input_game(int keysym, t_game *game);
 
 //close_game.c
 int		destroy_mlx_and_game(t_game *game);
+void	finish_game(char *str, t_game *game);
 
 #endif

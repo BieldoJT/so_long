@@ -6,13 +6,15 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:58 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/21 18:40:51 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/21 20:16:55 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void	destroy_img(t_game *game)
+
+
+static void	destroy_img(t_game *game)
 {
 	mlx_destroy_image(game->mlx_ptr, game->collectible.img_ptr);
 	mlx_destroy_image(game->mlx_ptr, game->exit_close.img_ptr);
@@ -20,6 +22,7 @@ void	destroy_img(t_game *game)
 	mlx_destroy_image(game->mlx_ptr, game->floor.img_ptr);
 	mlx_destroy_image(game->mlx_ptr, game->wall.img_ptr);
 	mlx_destroy_image(game->mlx_ptr, game->player.img_ptr);
+	mlx_destroy_image(game->mlx_ptr, game->enemy.img_ptr);
 }
 
 int	destroy_mlx_and_game(t_game *game)
@@ -32,6 +35,12 @@ int	destroy_mlx_and_game(t_game *game)
 	free(game);
 	exit(0);
 	return (0);
+}
+
+void	finish_game(char *str, t_game *game)
+{
+	ft_putstr_fd(str, 1);
+	destroy_mlx_and_game(game);
 }
 
 
