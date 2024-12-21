@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:19:58 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/21 18:41:36 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/21 19:45:18 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	fill_map(char **tab, t_positon size, t_positon cur)
 	item = tab[cur.y][cur.x];
 	if (cur.y < 0 || cur.y >= size.y || cur.x < 0 || cur.x >= size.x)
 		return;
-	if (item == '1' || item == 'X' || item == 'E')
+	if (item == '1' || item == 'X' || item == 'G')
 		return;
 	tab[cur.y][cur.x] = 'X';
 	t_positon next;
@@ -84,12 +84,12 @@ void	confirm_path(char **tab, t_game *game)
 		j = 0;
 		while (j < game->map_game.columns_map)
 		{
-			if(!(ft_strchr("01CEP",game->map_game.map[i][j])))
+			if(!(ft_strchr("01CEPG",game->map_game.map[i][j])))
 			{
 				free_tab(tab);
 				error_map("Map has an invalid caracter", game);
 			}
-			if (!(tab[i][j] == 'X' || tab[i][j] == '1' || tab[i][j] == '0' || tab[i][j] == 'E'))
+			if(!(ft_strchr("X10G",tab[i][j])))
 			{
 				free_tab(tab);
 				error_map("Map has an invalid path", game);

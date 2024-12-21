@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 21:41:49 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/21 18:41:32 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/21 19:24:15 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ void	init_var(t_game *game)
 	game->map_game.exit_map = 0;
 	game->map_game.player_qtd = 0;
 	game->movements = 0;
+	game->map_game.qtd_enemy = 0;
 	game->map_game.columns_map = ft_strlen(game->map_game.map[0]);
+	//mallocar
 }
 
 void	check_walls(t_game *game)
@@ -69,6 +71,8 @@ void	count_contents(t_game *game)
 			}
 			if(game->map_game.map[x][y] == 'E')
 				game->map_game.exit_map++;
+			if (game->map_game.map[x][y] == 'G')
+				game->map_game.qtd_enemy++;
 			y++;
 		}
 		x++;
@@ -81,10 +85,13 @@ void	verify_content(t_game *game)
 		error_map("Map has an invalid aaaa", game);
 	if(game->map_game.collectible < 1)
 		error_map("Must have at least one collectible", game);
+	else if(game->map_game.qtd_enemy < 1)
+		error_map("Must have at least one enemy", game);
 	else if(game->map_game.exit_map != 1)
 		error_map("Must have just one exit", game);
 	else if(game->map_game.player_qtd != 1)
 		error_map("Must have just one starting point", game);
+
 }
 
 void	check_all_map(t_game *game)

@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:40 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/21 18:42:21 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/21 19:23:55 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,25 @@ typedef struct s_position
 	int	y;
 }	t_positon;
 
+typedef struct s_enemies
+{
+	t_positon pos_enemy;
+	struct s_enemies *next;
+
+}	t_enemies;
+
 typedef struct s_map
 {
 	char		**map;
 	int			rows_map;
 	int			columns_map;
 	int			map_alloc;
-	int			wall;
 	int			collectible;
 	int			exit_map;
 	int			player_qtd;
+	int			qtd_enemy;
 	t_positon	player;
+	//t_positon	*enemy;
 }	t_map;
 
 typedef struct s_image
