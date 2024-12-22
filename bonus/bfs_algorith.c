@@ -6,10 +6,10 @@ void bfs_pathfinding(t_game *game, t_enemy *enemy, t_positon target)
 	int rows = game->map_game.rows_map;
 	int cols = game->map_game.columns_map;
 
-    int visited[rows][cols];
-    t_positon prev[rows][cols]; // Para rastrear o caminho
-    t_queue *queue = init_queue();
-    t_positon directions[] = { {0, 1}, {0, -1}, {1, 0}, {-1, 0} };
+	int visited[rows][cols];
+	t_positon prev[rows][cols]; // Para rastrear o caminho
+	t_queue *queue = init_queue();
+	t_positon directions[] = { {0, 1}, {0, -1}, {1, 0}, {-1, 0} };
 
     // Inicializar arrays de visitados e de predecessores
     for (int i = 0; i < rows; i++) {
