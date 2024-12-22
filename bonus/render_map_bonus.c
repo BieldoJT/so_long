@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:37 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/21 19:58:27 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/21 21:23:09 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ int	render(t_game *game)
 	char	*str_num;
 
 	i = 0;
-	while(i <= game->map_game.rows_map - 1)
+	while(i < game->map_game.rows_map)
 	{
 		j = 0;
-		while (j <= game->map_game.columns_map - 1)
+		while (j < game->map_game.columns_map)
 		{
 			put_to_window(game, game->map_game.map[i][j], i, j);
 			j++;

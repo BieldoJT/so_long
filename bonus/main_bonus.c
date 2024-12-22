@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:47 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/21 18:37:13 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/21 21:55:48 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ int	main(int argc, char **argv)
 	check_path(game);
 	init_mlx(game);
 	init_sprites(game);
+	create_lst_enemy(game);
+
+	//apagar!!!
+	testing_lst(game->enemies);
+
+
 	render(game);
 	mlx_key_hook(game->win_ptr,input_game,game);
 	mlx_hook(game->win_ptr, 17, 0, destroy_mlx_and_game, game);

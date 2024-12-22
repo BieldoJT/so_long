@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:19:13 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/21 19:32:55 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/21 22:01:17 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,23 @@ void	free_tab(char **tab)
 	while(tab[i])
 		free(tab[i++]);
 	free(tab);
+}
+
+void	lst_add_back(t_enemy **lst, t_enemy *new)
+{
+	if (!*lst)
+		*lst = new;
+	else
+		lstlast(*lst)->next = new;
+}
+
+t_enemy	*lstlast(t_enemy *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }
 
 

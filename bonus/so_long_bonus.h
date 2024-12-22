@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:40 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/21 20:17:47 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/21 22:26:21 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ typedef struct s_position
 	int	y;
 }	t_positon;
 
-typedef struct s_enemies
+typedef struct s_enemy
 {
-	t_positon pos_enemy;
-	struct s_enemies *next;
+	t_positon	pos_enemy;
+	struct s_enemy	*next;
 
-}	t_enemies;
+}	t_enemy;
 
 typedef struct s_map
 {
@@ -56,7 +56,7 @@ typedef struct s_map
 	int			player_qtd;
 	int			qtd_enemy;
 	t_positon	player;
-	//t_positon	*enemy;
+
 }	t_map;
 
 typedef struct s_image
@@ -79,11 +79,14 @@ typedef struct s_game
 	t_image		exit_close;
 	t_image		player;
 	t_image		enemy;
+	t_enemy		*enemies;
 }	t_game;
 
 //utils.c
 char	*join_and_free(char *str_to_free, char *str_to_add);
 void	free_tab(char **tab);
+t_enemy	*lstlast(t_enemy *lst);
+void	lst_add_back(t_enemy **lst, t_enemy *new);
 
 //read_map.c
 void	ft_check_command_line_arguments(int argc, char **argv, t_game *game);
@@ -125,5 +128,11 @@ int		input_game(int keysym, t_game *game);
 //close_game.c
 int		destroy_mlx_and_game(t_game *game);
 void	finish_game(char *str, t_game *game);
+
+//enemy_bonus.c
+void	create_lst_enemy(t_game *game);
+t_enemy	*create_node_enemy(int pos_x, int pos_y);
+
+void testing_lst(t_enemy *lst);//apagar essa função
 
 #endif
