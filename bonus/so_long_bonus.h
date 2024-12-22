@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:40 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/21 22:26:21 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/22 01:01:02 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,10 @@ void	finish_game(char *str, t_game *game);
 //enemy_bonus.c
 void	create_lst_enemy(t_game *game);
 t_enemy	*create_node_enemy(int pos_x, int pos_y);
+void	free_lst(t_enemy *lst);
+void	chose_direcion(t_enemy *enemy, int delta_x, int delta_y);
+void	move_enemy(t_game *game, int pos_player_x, int pos_player_y);
 
-void testing_lst(t_enemy *lst);//apagar essa função
+void testing_lst(t_enemy **lst);//apagar essa função
 
 #endif

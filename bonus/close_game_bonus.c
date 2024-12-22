@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:58 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/21 20:16:55 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/22 00:14:24 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static void	destroy_img(t_game *game)
 
 int	destroy_mlx_and_game(t_game *game)
 {
+	free_lst(game->enemies);
 	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	free_tab(game->map_game.map);
 	destroy_img(game);

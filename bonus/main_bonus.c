@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:47 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/21 21:55:48 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/22 00:14:37 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 	create_lst_enemy(game);
 
 	//apagar!!!
-	testing_lst(game->enemies);
+	testing_lst(&game->enemies);
 
 
 	render(game);
