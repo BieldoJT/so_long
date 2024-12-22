@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 21:12:12 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/22 01:00:35 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/22 16:28:04 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ void	free_lst(t_enemy *lst)
 		lst = aux;
 	}
 }
+
+/*
 void	chose_direcion(t_enemy *enemy, int delta_x, int delta_y)
 {
 	int	temp_x;
@@ -107,25 +109,19 @@ void	chose_direcion(t_enemy *enemy, int delta_x, int delta_y)
 			enemy->pos_enemy.y--;
 	}
 }
+*/
 
 
-void	move_enemy(t_game *game, int pos_player_x, int pos_player_y)
+void	move_enemy(t_game *game, t_positon player)
 {
-	int		dist_x;
-	int		dist_y;
-	t_enemy	*enemy;
-	char **map;
+	t_enemy *enemy = game->enemies;
 
-	map = game->map_game.map;
-	enemy = game->enemies;
-	while (enemy)
-	{
-		map[enemy->pos_enemy.x][enemy->pos_enemy.y] = '0';
-		dist_x = pos_player_x - enemy->pos_enemy.x;
-		dist_y = pos_player_y - enemy->pos_enemy.y;
-		chose_direcion(enemy, dist_x, dist_y);
-		map[enemy->pos_enemy.x][enemy->pos_enemy.y] = 'G';
-		enemy = enemy->next;
-	}
+    while (enemy) {
+        bfs_pathfinding(game, enemy, player);
+		if (enemy->pos_enemy.x == player.x && enemy->pos_enemy.y == player.y)
+			finish_game("Ohh, you touched the globin, you lose!!!\n",game);
+        enemy = enemy->next;
+    }
+
 }
 

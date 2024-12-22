@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:43 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/22 01:03:12 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/22 16:45:20 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void	move_player(t_game *game, int pos_x, int pos_y)
 	//fazer a função de andar o inimigo
 	if (map[pos_x][pos_y] == 'G')
 		finish_game("Ohh, you touched the globin, you lose!!!\n",game);
-	move_enemy(game, pos_x, pos_y);
 	change_pos(game, pos_x, pos_y);
+	move_enemy(game, game->map_game.player);
 }
 
 int	input_game(int keysym, t_game *game)

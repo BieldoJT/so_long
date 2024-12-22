@@ -40,6 +40,8 @@ BONUS_SRCS = $(addprefix $(BONUS_DIR),\
 				play_game_bonus.c \
 				close_game_bonus.c \
 				enemy_bonus.c \
+				queue_functions.c \
+				bfs_algorith.c \
 				main_bonus.c)
 
 

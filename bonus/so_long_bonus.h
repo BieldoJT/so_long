@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:40 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/22 01:01:02 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/22 14:20:25 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,19 @@
 # define KEY_D	100
 # define ESC	65307
 
+
 typedef struct s_position
 {
 	int	x;
 	int	y;
 }	t_positon;
+
+typedef struct s_queue {
+	t_positon	pos;
+	struct s_queue *next;
+}	t_queue;
+
+
 
 typedef struct s_enemy
 {
@@ -134,8 +142,19 @@ void	create_lst_enemy(t_game *game);
 t_enemy	*create_node_enemy(int pos_x, int pos_y);
 void	free_lst(t_enemy *lst);
 void	chose_direcion(t_enemy *enemy, int delta_x, int delta_y);
-void	move_enemy(t_game *game, int pos_player_x, int pos_player_y);
+void	move_enemy(t_game *game, t_positon player);
 
 void testing_lst(t_enemy **lst);//apagar essa função
+
+//queue_funct.c
+t_queue	*init_queue();
+int	is_empty(t_queue *queue);
+void	enqueue(t_queue **queue, t_positon pos);
+t_positon	dequeue(t_queue **queue);
+void free_queue(t_queue *queue);
+
+//bsf
+void bfs_pathfinding(t_game *game, t_enemy *enemy, t_positon target);
+
 
 #endif
