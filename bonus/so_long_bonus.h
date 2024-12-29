@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
+/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:40 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/22 14:20:25 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/29 16:42:37 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,11 @@ void free_queue(t_queue *queue);
 
 //bsf
 void bfs_pathfinding(t_game *game, t_enemy *enemy, t_positon target);
+
+//create_visited
+int **init_visited(t_game *game);
+t_positon **init_position(t_game *game);
+void generate_visited(t_game *game, int **visited, t_positon **prev);
 
 
 #endif

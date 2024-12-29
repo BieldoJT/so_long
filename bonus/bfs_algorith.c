@@ -2,6 +2,22 @@
 
 void bfs_pathfinding(t_game *game, t_enemy *enemy, t_positon target)
 {
+	char **map = game->map_game.map; // tirar
+	t_queue		*queue;
+	t_positon	**prev;
+	int			**visited;
+
+	t_positon directions[] = { {0, 1}, {0, -1}, {1, 0}, {-1, 0} }; // make function that iniciates direcetions;
+
+	int rows = game->map_game.rows_map; // tirar
+	int cols = game->map_game.columns_map; // tirar
+
+	visited = init_visited(game);
+	prev = init_position(game);
+	// fazer free do visited e do prev
+	generate_visited(game,visited,prev);
+	queue = init_queue();
+/*
 	char **map = game->map_game.map;
 	int rows = game->map_game.rows_map;
 	int cols = game->map_game.columns_map;
@@ -17,7 +33,8 @@ void bfs_pathfinding(t_game *game, t_enemy *enemy, t_positon target)
             visited[i][j] = 0;
             prev[i][j] = (t_positon) { -1, -1 };
         }
-    }
+    }*/
+
 
     // Começar do inimigo
     enqueue(&queue, enemy->pos_enemy);
