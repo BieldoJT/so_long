@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
+/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:47 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/22 00:14:37 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/30 14:54:53 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,6 @@ int	main(int argc, char **argv)
 	init_mlx(game);
 	init_sprites(game);
 	create_lst_enemy(game);
-
-	//apagar!!!
-	testing_lst(&game->enemies);
-
-
 	render(game);
 	mlx_key_hook(game->win_ptr,input_game,game);
 	mlx_hook(game->win_ptr, 17, 0, destroy_mlx_and_game, game);

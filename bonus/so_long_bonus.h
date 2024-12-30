@@ -6,7 +6,7 @@
 /*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:40 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/29 16:42:37 by bieldojt         ###   ########.fr       */
+/*   Updated: 2024/12/30 14:54:43 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,14 @@ typedef struct s_enemy
 {
 	t_positon	pos_enemy;
 	struct s_enemy	*next;
-
 }	t_enemy;
+
+typedef struct s_bfs_components
+{
+	int **grafh;
+	t_positon **prev_pos;
+}	t_bfs_components;
+
 
 typedef struct s_map
 {
@@ -64,7 +70,6 @@ typedef struct s_map
 	int			player_qtd;
 	int			qtd_enemy;
 	t_positon	player;
-
 }	t_map;
 
 typedef struct s_image
@@ -144,8 +149,6 @@ void	free_lst(t_enemy *lst);
 void	chose_direcion(t_enemy *enemy, int delta_x, int delta_y);
 void	move_enemy(t_game *game, t_positon player);
 
-void testing_lst(t_enemy **lst);//apagar essa função
-
 //queue_funct.c
 t_queue	*init_queue();
 int	is_empty(t_queue *queue);
@@ -153,13 +156,18 @@ void	enqueue(t_queue **queue, t_positon pos);
 t_positon	dequeue(t_queue **queue);
 void free_queue(t_queue *queue);
 
-//bsf
+//bsf algorith
 void bfs_pathfinding(t_game *game, t_enemy *enemy, t_positon target);
 
+//bfs.c
+void	bfs_looping(t_game *game ,t_queue **queue, t_positon target, t_bfs_components *components);
+void	get_next_move(t_game *game, t_bfs_components *comp, t_enemy *enemy, t_positon target);
+
 //create_visited
-int **init_visited(t_game *game);
+int **init_graph(t_game *game);
 t_positon **init_position(t_game *game);
-void generate_visited(t_game *game, int **visited, t_positon **prev);
+void	generate_graph(t_game *game, t_bfs_components *components);
+void	free_bfs_components(t_bfs_components *components, int rows);
 
 
 #endif

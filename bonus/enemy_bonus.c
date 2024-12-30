@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   enemy_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
+/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 21:12:12 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/22 16:28:04 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/30 14:54:14 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,6 @@ void	create_lst_enemy(t_game *game)
 		i++;
 	}
 	game->enemies = list_enemy;
-}
-
-//apagar essa função!!!
-void testing_lst(t_enemy **lst)
-{
-	t_enemy *aux;
-
-	aux = *lst;
-
-	while (aux != NULL)
-	{
-		printf("coordenada x: %i\ncoordenada y: %i\n", aux->pos_enemy.x, aux->pos_enemy.y);
-		aux = aux->next;
-	}
 }
 
 
