@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
+/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 21:36:00 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/21 18:41:02 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/31 19:02:51 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_check_command_line_arguments(int argc, char **argv, t_game *game)
 		error_map("Map file extention is wrong (It should be .ber).", game);
 }
 
-void verify_alloc(t_game *game)
+static void verify_alloc(t_game *game)
 {
 	int		i;
 	size_t	len;
@@ -42,7 +42,7 @@ void verify_alloc(t_game *game)
 	}
 }
 
-void	verify_new_line(char *map, t_game *game)
+static void	verify_new_line(char *map, t_game *game)
 {
 	int	index;
 

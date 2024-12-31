@@ -8,6 +8,7 @@
 		"string_view": "c",
 		"*.tcc": "c",
 		"fcntl.h": "c",
-		"mlx.h": "c"
+		"mlx.h": "c",
+		"so_long_bonus.h": "c"
 	}
 }

@@ -6,13 +6,13 @@
 /*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 21:12:12 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/31 18:17:26 by bieldojt         ###   ########.fr       */
+/*   Updated: 2024/12/31 19:12:59 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-t_enemy	*create_node_enemy(int pos_x, int pos_y)
+static t_enemy	*create_node_enemy(int pos_x, int pos_y)
 {
 	t_enemy		*node;
 	t_positon	pos;
@@ -52,9 +52,6 @@ void	create_lst_enemy(t_game *game)
 	}
 	game->enemies = list_enemy;
 }
-
-
-//fazer função pra dar free na lista encadeada
 
 void	free_lst(t_enemy *lst)
 {

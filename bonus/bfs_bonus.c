@@ -1,6 +1,6 @@
 #include "so_long_bonus.h"
 
-void bfs_pathfinding(t_game *game, t_enemy *enemy, t_positon target)
+void	bfs_pathfinding(t_game *game, t_enemy *enemy, t_positon target)
 {
 	t_queue				*queue;
 	t_bfs_components	*bfs_components;

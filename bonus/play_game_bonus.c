@@ -6,7 +6,7 @@
 /*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:43 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/31 18:18:27 by bieldojt         ###   ########.fr       */
+/*   Updated: 2024/12/31 19:08:07 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	change_pos(t_game *game, int pos_x, int pos_y)
 	game->movements++;
 }
  //essa função é static??
-void	move_player(t_game *game, int pos_x, int pos_y)
+static void	move_player(t_game *game, int pos_x, int pos_y)
 {
 	char **map;
 

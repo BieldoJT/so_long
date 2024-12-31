@@ -84,9 +84,9 @@ void	get_next_move(t_game *game, t_bfs_components *comp, t_enemy *enemy, t_posit
 		prev_x = comp->prev_pos[step.x][step.y].x;
 		prev_y = comp->prev_pos[step.x][step.y].y;
 	}
-	if (map[enemy->pos_enemy.x][enemy->pos_enemy.y] == 'G') // Atualizar posição do inimigo
+	if (map[enemy->pos_enemy.x][enemy->pos_enemy.y] == 'G') // update enemy pos
 		map[enemy->pos_enemy.x][enemy->pos_enemy.y] = '0';
 	enemy->pos_enemy = next_move;
-	map[next_move.x][next_move.y] = 'G'; // Atualizar o mapa
+	map[next_move.x][next_move.y] = 'G'; // update map
 }
 

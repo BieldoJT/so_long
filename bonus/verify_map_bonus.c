@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   verify_map_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
+/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 21:41:49 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/21 19:24:15 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/31 19:04:02 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void	init_var(t_game *game)
+static void	init_var(t_game *game)
 {
 	game->map_game.collectible = 0;
 	game->map_game.exit_map = 0;
@@ -20,10 +20,9 @@ void	init_var(t_game *game)
 	game->movements = 0;
 	game->map_game.qtd_enemy = 0;
 	game->map_game.columns_map = ft_strlen(game->map_game.map[0]);
-	//mallocar
 }
 
-void	check_walls(t_game *game)
+static void	check_walls(t_game *game)
 {
 	int	x;
 	int	y;
@@ -50,7 +49,7 @@ void	check_walls(t_game *game)
 	}
 }
 
-void	count_contents(t_game *game)
+static void	count_contents(t_game *game)
 {
 	int	x;
 	int	y;
@@ -79,7 +78,7 @@ void	count_contents(t_game *game)
 	}
 }
 
-void	verify_content(t_game *game)
+static void	verify_content(t_game *game)
 {
 	if ((game->map_game.columns_map <= 2) || (game->map_game.rows_map <= 2))// Valida o tamanho
 		error_map("Map has an invalid aaaa", game);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_game_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
+/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:29:20 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/21 19:55:09 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/31 19:06:18 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	init_mlx(t_game *game)
 	}
 }
 
-t_image	get_img(void *mlx, char *path, t_game *game)
+static t_image	get_img(void *mlx, char *path, t_game *game)
 {
 	t_image	img;
 
@@ -50,7 +50,6 @@ t_image	get_img(void *mlx, char *path, t_game *game)
 void	init_sprites(t_game *game)
 {
 	void	*mlx;
-
 
 	mlx = game->mlx_ptr;
 	game->wall = get_img(mlx, "textures/wall.xpm", game);
