@@ -6,7 +6,7 @@
 /*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:29:20 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/31 18:13:52 by bieldojt         ###   ########.fr       */
+/*   Updated: 2024/12/31 18:43:16 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	init_mlx(t_game *game)
 	}
 }
 
-t_image	get_img(void *mlx, char *path, t_game *game)
+static t_image	get_img(void *mlx, char *path, t_game *game)
 {
 	t_image	img;
 

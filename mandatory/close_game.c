@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   close_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
+/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:58 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/17 23:19:00 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/31 18:55:21 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	destroy_img(t_game *game)
+static void	destroy_img(t_game *game)
 {
 	mlx_destroy_image(game->mlx_ptr, game->collectible.img_ptr);
 	mlx_destroy_image(game->mlx_ptr, game->exit_close.img_ptr);

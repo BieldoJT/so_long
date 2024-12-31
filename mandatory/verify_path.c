@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   verify_path.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
+/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:19:58 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/21 19:46:36 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/31 18:42:22 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	**copy_map(t_game *game)
+static char	**copy_map(t_game *game)
 {
 	char	**copy;
 	int	i;
@@ -39,7 +39,7 @@ char	**copy_map(t_game *game)
 	return (copy);
 }
 
-void	fill_map(char **tab, t_positon size, t_positon cur)
+static void	fill_map(char **tab, t_positon size, t_positon cur)
 {
 	char	item;
 
@@ -56,7 +56,7 @@ void	fill_map(char **tab, t_positon size, t_positon cur)
 	next = cur; next.y += 1; fill_map(tab, size, next);
 }
 
-void get_path(char **tab, t_game *game)
+static void get_path(char **tab, t_game *game)
 {
 	t_positon	size;
 	t_positon	begin;
@@ -73,7 +73,7 @@ void get_path(char **tab, t_game *game)
 	fill_map(tab, size, begin);
 }
 
-void	confirm_path(char **tab, t_game *game)
+static void	confirm_path(char **tab, t_game *game)
 {
 	int	i;
 	int	j;

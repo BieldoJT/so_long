@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   render_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
+/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:37 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/21 18:03:22 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/31 18:44:16 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 
-void	put_to_window(t_game *game, char element, int row, int col)
+static void	put_to_window(t_game *game, char element, int row, int col)
 {
 	void	*mlx;
 	void	*win;

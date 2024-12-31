@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   play_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
+/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:43 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/17 23:24:05 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/31 18:45:26 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	move_player(t_game *game, int pos_x, int pos_y)
+static void	move_player(t_game *game, int pos_x, int pos_y)
 {
 	int	last_x;
 	int	last_y;
