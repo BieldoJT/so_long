@@ -6,13 +6,11 @@
 /*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:58 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/30 14:08:42 by bieldojt         ###   ########.fr       */
+/*   Updated: 2024/12/31 18:15:21 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
-
-
 
 static void	destroy_img(t_game *game)
 {

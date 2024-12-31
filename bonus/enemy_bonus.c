@@ -6,7 +6,7 @@
 /*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 21:12:12 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/30 14:54:14 by bieldojt         ###   ########.fr       */
+/*   Updated: 2024/12/31 18:17:26 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_enemy	*create_node_enemy(int pos_x, int pos_y)
 {
-	t_enemy	*node;
+	t_enemy		*node;
 	t_positon	pos;
 
 	pos.x = pos_x;
@@ -68,46 +68,17 @@ void	free_lst(t_enemy *lst)
 	}
 }
 
-/*
-void	chose_direcion(t_enemy *enemy, int delta_x, int delta_y)
-{
-	int	temp_x;
-	int	temp_y;
-
-	temp_x = delta_x;
-	temp_y = delta_y;
-	if (temp_x < 0)
-		temp_x *= -1;
-	if (temp_y < 0)
-		temp_y *= -1;
-	if (temp_x > temp_y)
-	{
-		if (delta_x > 0)
-			enemy->pos_enemy.x++;
-		else
-			enemy->pos_enemy.x--;
-	}
-	else
-	{
-		if (delta_y > 0)
-			enemy->pos_enemy.y++;
-		else
-			enemy->pos_enemy.y--;
-	}
-}
-*/
-
-
 void	move_enemy(t_game *game, t_positon player)
 {
 	t_enemy *enemy = game->enemies;
 
-    while (enemy) {
-        bfs_pathfinding(game, enemy, player);
+	while (enemy)
+	{
+		bfs_pathfinding(game, enemy, player);
 		if (enemy->pos_enemy.x == player.x && enemy->pos_enemy.y == player.y)
 			finish_game("Ohh, you touched the globin, you lose!!!\n",game);
-        enemy = enemy->next;
-    }
+		enemy = enemy->next;
+	}
 
 }
 

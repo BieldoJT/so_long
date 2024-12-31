@@ -2,10 +2,10 @@
 
 int	**init_graph(t_game *game)
 {
-	int rows;
-	int cols;
-	int i;
-	int **visited;
+	int	rows;
+	int	cols;
+	int	i;
+	int	**visited;
 
 	rows = game->map_game.rows_map;
 	cols = game->map_game.columns_map;
@@ -21,10 +21,10 @@ int	**init_graph(t_game *game)
 
 t_positon	**init_position(t_game *game)
 {
-	int rows;
-	int cols;
-	int i;
-	t_positon **positions;
+	int			rows;
+	int			cols;
+	int			i;
+	t_positon	**positions;
 
 	rows = game->map_game.rows_map;
 	cols = game->map_game.columns_map;
@@ -40,10 +40,10 @@ t_positon	**init_position(t_game *game)
 
 void	generate_graph(t_game *game, t_bfs_components *components)
 {
-	int rows;
-	int cols;
-	int i;
-	int j;
+	int	rows;
+	int	cols;
+	int	i;
+	int	j;
 
 	rows = game->map_game.rows_map;
 	cols = game->map_game.columns_map;

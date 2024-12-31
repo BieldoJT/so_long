@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   play_game_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
+/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:43 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/22 16:45:20 by gda-conc         ###   ########.fr       */
+/*   Updated: 2024/12/31 18:18:27 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static void	change_pos(t_game *game, int pos_x, int pos_y)
 {
-	int	last_x;
-	int	last_y;
-	char **map;
+	int		last_x;
+	int		last_y;
+	char	**map;
 
 	map = game->map_game.map;
 	last_x = game->map_game.player.x;
@@ -44,7 +44,6 @@ void	move_player(t_game *game, int pos_x, int pos_y)
 		else
 			return ;
 	}
-	//fazer a função de andar o inimigo
 	if (map[pos_x][pos_y] == 'G')
 		finish_game("Ohh, you touched the globin, you lose!!!\n",game);
 	change_pos(game, pos_x, pos_y);
