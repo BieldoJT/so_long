@@ -6,7 +6,7 @@
 /*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:43 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/31 19:08:07 by bieldojt         ###   ########.fr       */
+/*   Updated: 2025/01/06 13:26:38 by labs42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ static void	change_pos(t_game *game, int pos_x, int pos_y)
 	game->map_game.player.y = pos_y;
 	game->movements++;
 }
- //essa função é static??
+
+//essa função é static??
 static void	move_player(t_game *game, int pos_x, int pos_y)
 {
-	char **map;
+	char	**map;
 
 	map = game->map_game.map;
 	if (map[pos_x][pos_y] == '1')
@@ -40,12 +41,12 @@ static void	move_player(t_game *game, int pos_x, int pos_y)
 	if (map[pos_x][pos_y] == 'E')
 	{
 		if (!game->map_game.collectible)
-			finish_game("Congratulations, you win!!\n",game);
+			finish_game("Congratulations, you win!!\n", game);
 		else
 			return ;
 	}
 	if (map[pos_x][pos_y] == 'G')
-		finish_game("Ohh, you touched the globin, you lose!!!\n",game);
+		finish_game("Ohh, you touched the globin, you lose!!!\n", game);
 	change_pos(game, pos_x, pos_y);
 	move_enemy(game, game->map_game.player);
 }
@@ -60,13 +61,13 @@ int	input_game(int keysym, t_game *game)
 	if (keysym == ESC)
 		destroy_mlx_and_game(game);
 	if (keysym == KEY_W)
-		move_player(game,pos_player_x - 1, pos_player_y);
+		move_player(game, pos_player_x - 1, pos_player_y);
 	if (keysym == KEY_S)
-		move_player(game,pos_player_x + 1, pos_player_y);
+		move_player(game, pos_player_x + 1, pos_player_y);
 	if (keysym == KEY_D)
-		move_player(game,pos_player_x, pos_player_y + 1);
+		move_player(game, pos_player_x, pos_player_y + 1);
 	if (keysym == KEY_A)
-		move_player(game,pos_player_x, pos_player_y - 1);
+		move_player(game, pos_player_x, pos_player_y - 1);
 	render(game);
 	return (0);
 }
