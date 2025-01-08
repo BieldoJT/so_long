@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   verify_path_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: labs42 <labs42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:19:58 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/31 19:04:54 by bieldojt         ###   ########.fr       */
+/*   Updated: 2025/01/08 12:55:05 by labs42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ static char	**copy_map(t_game *game)
 
 static void	fill_map(char **tab, t_positon size, t_positon cur)
 {
-	char	item;
+	char		item;
+	t_positon	next;
 
 	item = tab[cur.y][cur.x];
 	if (cur.y < 0 || cur.y >= size.y || cur.x < 0 || cur.x >= size.x)
@@ -49,11 +50,18 @@ static void	fill_map(char **tab, t_positon size, t_positon cur)
 	if (item == '1' || item == 'X' || item == 'G')
 		return;
 	tab[cur.y][cur.x] = 'X';
-	t_positon next;
-	next = cur; next.x -= 1; fill_map(tab, size, next);
-	next = cur; next.x += 1; fill_map(tab, size, next);
-	next = cur; next.y -= 1; fill_map(tab, size, next);
-	next = cur; next.y += 1; fill_map(tab, size, next);
+	next = cur;
+	next.x -= 1;
+	fill_map(tab, size, next);
+	next = cur;
+	next.x += 1;
+	fill_map(tab, size, next);
+	next = cur;
+	next.y -= 1;
+	fill_map(tab, size, next);
+	next = cur;
+	next.y += 1;
+	fill_map(tab, size, next);
 }
 
 static void get_path(char **tab, t_game *game)
