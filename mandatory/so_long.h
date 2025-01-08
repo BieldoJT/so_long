@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:40 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/31 18:55:31 by bieldojt         ###   ########.fr       */
+/*   Updated: 2025/01/08 13:15:04 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	ft_check_command_line_arguments(int argc, char **argv, t_game *game);
 void	read_file(char *argv, t_game *data);
 
 //print_error.c
-void	error_map(char *message,t_game *game);
+void	error_map(char *message, t_game *game);
 void	error_mlx(char *message, t_game *game);
 
 //verify_map.c

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   play_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:43 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/31 18:45:26 by bieldojt         ###   ########.fr       */
+/*   Updated: 2025/01/08 13:05:48 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ int	input_game(int keysym, t_game *game)
 	if (keysym == ESC)
 		destroy_mlx_and_game(game);
 	if (keysym == KEY_W)
-		move_player(game,pos_player_x - 1, pos_player_y);
+		move_player(game, pos_player_x - 1, pos_player_y);
 	if (keysym == KEY_S)
-		move_player(game,pos_player_x + 1, pos_player_y);
+		move_player(game, pos_player_x + 1, pos_player_y);
 	if (keysym == KEY_D)
-		move_player(game,pos_player_x, pos_player_y + 1);
+		move_player(game, pos_player_x, pos_player_y + 1);
 	if (keysym == KEY_A)
-		move_player(game,pos_player_x, pos_player_y - 1);
+		move_player(game, pos_player_x, pos_player_y - 1);
 	render(game);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   verify_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 21:41:49 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/31 18:40:58 by bieldojt         ###   ########.fr       */
+/*   Updated: 2025/01/08 13:35:57 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,26 @@ static void	init_var(t_game *game)
 
 static void	check_walls(t_game *game)
 {
-	int	x;
-	int	y;
-	int	len_x;
-	int	len_y;
+	int		x;
+	int		y;
+	int		len_x;
+	int		len_y;
+	char	**map;
 
 	len_x = game->map_game.rows_map;
 	len_y = game->map_game.columns_map;
+	map = game->map_game.map;
 	x = 0;
-	while(x < len_x)
+	while (x < len_x)
 	{
 		y = 0;
-		while(y < len_y)
+		while (y < len_y)
 		{
-			if(x == 0 && game->map_game.map[0][y] != '1') //checking in the beginnning
+			if (x == 0 && map[0][y] != '1')
 				error_map("wall is incomplete in the first row", game);
-			else if(x == (len_x - 1) && game->map_game.map[x][y] != '1') //checking last row
+			else if (x == (len_x - 1) && map[x][y] != '1')
 				error_map("wall is incomplete in the last row", game);
-			else if((game->map_game.map[x][0] != '1') || (game->map_game.map[x][len_y - 1] != '1')) //checking sides
+			else if ((map[x][0] != '1') || (map[x][len_y - 1] != '1'))
 				error_map("wall is incomplete in the sides", game);
 			y++;
 		}
@@ -54,20 +56,20 @@ static void	count_contents(t_game *game)
 	int	y;
 
 	x = 1;
-	while(x < game->map_game.rows_map - 1)
+	while (x < game->map_game.rows_map - 1)
 	{
 		y = 1;
 		while (y < game->map_game.columns_map - 1)
 		{
-			if(game->map_game.map[x][y] == 'C')
+			if (game->map_game.map[x][y] == 'C')
 				game->map_game.collectible++;
-			if(game->map_game.map[x][y] == 'P')
+			if (game->map_game.map[x][y] == 'P')
 			{
 				game->map_game.player.x = x;
 				game->map_game.player.y = y;
 				game->map_game.player_qtd++;
 			}
-			if(game->map_game.map[x][y] == 'E')
+			if (game->map_game.map[x][y] == 'E')
 				game->map_game.exit_map++;
 			y++;
 		}
@@ -77,13 +79,13 @@ static void	count_contents(t_game *game)
 
 static void	verify_content(t_game *game)
 {
-	if ((game->map_game.columns_map <= 2) || (game->map_game.rows_map <= 2))// Valida o tamanho
+	if ((game->map_game.columns_map <= 2) || (game->map_game.rows_map <= 2))
 		error_map("Map has an invalid aaaa", game);
-	if(game->map_game.collectible < 1)
+	if (game->map_game.collectible < 1)
 		error_map("Must have at least one collectible", game);
-	else if(game->map_game.exit_map != 1)
+	else if (game->map_game.exit_map != 1)
 		error_map("Must have just one exit", game);
-	else if(game->map_game.player_qtd != 1)
+	else if (game->map_game.player_qtd != 1)
 		error_map("Must have just one starting point", game);
 }
 
@@ -94,5 +96,3 @@ void	check_all_map(t_game *game)
 	count_contents(game);
 	verify_content(game);
 }
-
-

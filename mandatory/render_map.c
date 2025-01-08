@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   render_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:37 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/31 18:57:50 by bieldojt         ###   ########.fr       */
+/*   Updated: 2025/01/08 13:13:57 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 static void	put_to_window(t_game *game, char element, int row, int col)
 {
@@ -21,23 +20,22 @@ static void	put_to_window(t_game *game, char element, int row, int col)
 
 	mlx = game->mlx_ptr;
 	win = game->win_ptr;
-	if(element == '0')
+	if (element == '0')
 		img_ptr = game->floor.img_ptr;
-	if(element == '1')
+	if (element == '1')
 		img_ptr = game->wall.img_ptr;
-	if(element == 'C')
+	if (element == 'C')
 		img_ptr = game->collectible.img_ptr;
-	if(element == 'E')
+	if (element == 'E')
 	{
-		if(game->map_game.collectible != 0)
+		if (game->map_game.collectible != 0)
 			img_ptr = game->exit_close.img_ptr;
 		else
 			img_ptr = game->exit_open.img_ptr;
 	}
-	if(element == 'P')
+	if (element == 'P')
 		img_ptr = game->player.img_ptr;
-
-	mlx_put_image_to_window(mlx,win,img_ptr, (col * 32), (row * 32));
+	mlx_put_image_to_window(mlx, win, img_ptr, (col * 32), (row * 32));
 }
 
 int	render(t_game *game)
@@ -48,7 +46,7 @@ int	render(t_game *game)
 	char	*str_num;
 
 	i = 0;
-	while(i <= game->map_game.rows_map - 1)
+	while (i <= game->map_game.rows_map - 1)
 	{
 		j = 0;
 		while (j <= game->map_game.columns_map - 1)
@@ -60,7 +58,7 @@ int	render(t_game *game)
 	}
 	str_num = ft_itoa(game->movements);
 	print_moviments = ft_strjoin("Moviments: ", str_num);
-	ft_printf("%s\n",print_moviments);
+	ft_printf("%s\n", print_moviments);
 	free(str_num);
 	free(print_moviments);
 	return (0);

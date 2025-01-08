@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   close_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:58 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/31 18:55:21 by bieldojt         ###   ########.fr       */
+/*   Updated: 2025/01/08 13:04:46 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,3 @@ int	destroy_mlx_and_game(t_game *game)
 	exit(0);
 	return (0);
 }
-
-

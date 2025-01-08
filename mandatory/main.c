@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
+/*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:47 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/21 18:24:28 by gda-conc         ###   ########.fr       */
+/*   Updated: 2025/01/08 13:05:14 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	init_mlx(game);
 	init_sprites(game);
 	render(game);
-	mlx_key_hook(game->win_ptr,input_game,game);
+	mlx_key_hook(game->win_ptr, input_game, game);
 	mlx_hook(game->win_ptr, 17, 0, destroy_mlx_and_game, game);
 	mlx_loop(game->mlx_ptr);
 	return (0);
