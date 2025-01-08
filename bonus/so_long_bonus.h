@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:40 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/31 19:15:52 by bieldojt         ###   ########.fr       */
+/*   Updated: 2025/01/08 13:45:11 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ typedef struct s_enemy
 	struct s_enemy	*next;
 }	t_enemy;
 
-typedef struct s_bfs_components
+typedef struct s_comp
 {
 	int **grafh;
 	t_positon **prev_pos;
-}	t_bfs_components;
+}	t_comp;
 
 
 typedef struct s_map
@@ -145,14 +145,14 @@ void		free_queue(t_queue *queue);
 void		bfs_pathfinding(t_game *game, t_enemy *enemy, t_positon target);
 
 //bfs_utils.c
-void		bfs_looping(t_game *game ,t_queue **queue, t_positon target, t_bfs_components *components);
-void		get_next_move(t_game *game, t_bfs_components *comp, t_enemy *enemy, t_positon target);
+void		bfs_looping(t_game *game ,t_queue **queue, t_positon target, t_comp *components);
+void		get_next_move(t_game *game, t_comp *comp, t_enemy *enemy, t_positon target);
 
 //create_graph
 int			**init_graph(t_game *game);
 t_positon	**init_position(t_game *game);
-void		generate_graph(t_game *game, t_bfs_components *components);
-void		free_bfs_components(t_bfs_components *components, int rows);
+void		generate_graph(t_game *game, t_comp *comp);
+void		free_bfs_components(t_comp *comp, int rows);
 
 
 #endif

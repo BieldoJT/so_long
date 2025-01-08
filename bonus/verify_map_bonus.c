@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   verify_map_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 21:41:49 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/31 19:04:02 by bieldojt         ###   ########.fr       */
+/*   Updated: 2025/01/08 13:37:58 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,26 @@ static void	init_var(t_game *game)
 
 static void	check_walls(t_game *game)
 {
-	int	x;
-	int	y;
-	int	len_x;
-	int	len_y;
+	int		x;
+	int		y;
+	int		len_x;
+	int		len_y;
+	char	**map;
 
 	len_x = game->map_game.rows_map;
 	len_y = game->map_game.columns_map;
+	map = game->map_game.map;
 	x = 0;
-	while(x < len_x)
+	while (x < len_x)
 	{
 		y = 0;
-		while(y < len_y)
+		while (y < len_y)
 		{
-			if(x == 0 && game->map_game.map[0][y] != '1') //checking in the beginnning
+			if (x == 0 && map[0][y] != '1')
 				error_map("wall is incomplete in the first row", game);
-			else if(x == (len_x - 1) && game->map_game.map[x][y] != '1') //checking last row
+			else if (x == (len_x - 1) && map[x][y] != '1')
 				error_map("wall is incomplete in the last row", game);
-			else if((game->map_game.map[x][0] != '1') || (game->map_game.map[x][len_y - 1] != '1')) //checking sides
+			else if ((map[x][0] != '1') || (map[x][len_y - 1] != '1'))
 				error_map("wall is incomplete in the sides", game);
 			y++;
 		}

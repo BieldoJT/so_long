@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bfs_utils_bonus.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/08 13:40:06 by gda-conc          #+#    #+#             */
+/*   Updated: 2025/01/08 13:43:28 by gda-conc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
@@ -13,7 +24,7 @@ static void	get_directions(t_positon *directions)
 	directions[3].y = 0;
 }
 
-static int	verify_direction(t_game *game,int **graph, int x, int y)
+static int	verify_direction(t_game *game, int **graph, int x, int y)
 {
 	char	**map;
 	int		rows;
@@ -22,7 +33,7 @@ static int	verify_direction(t_game *game,int **graph, int x, int y)
 	rows = game->map_game.rows_map;
 	cols = game->map_game.columns_map;
 	map = game->map_game.map;
-	if ((x < 0 || x >= rows) || (y < 0 || y>=cols))
+	if ((x < 0 || x >= rows) || (y < 0 || y >= cols))
 		return (0);
 	if (graph[x][y])
 		return (0);
@@ -33,9 +44,7 @@ static int	verify_direction(t_game *game,int **graph, int x, int y)
 	return (1);
 }
 
-
-
-void	bfs_looping(t_game *game ,t_queue **queue, t_positon target, t_bfs_components *components)
+void	bfs_looping(t_game *game, t_queue **queue, t_positon target, t_comp *comp)
 {
 	t_positon	directions[4];
 	t_positon	current;
@@ -53,18 +62,18 @@ void	bfs_looping(t_game *game ,t_queue **queue, t_positon target, t_bfs_componen
 		{
 			neighbor.x = current.x + directions[i].x;
 			neighbor.y = current.y + directions[i].y;
-			if (verify_direction(game,components->grafh,neighbor.x,neighbor.y))
+			if (verify_direction(game,comp->grafh,neighbor.x,neighbor.y))
 			{
 				enqueue(queue, neighbor);
-				components->grafh[neighbor.x][neighbor.y] = 1;
-				components->prev_pos[neighbor.x][neighbor.y] = current;
+				comp->grafh[neighbor.x][neighbor.y] = 1;
+				comp->prev_pos[neighbor.x][neighbor.y] = current;
 			}
 			i++;
 		}
 	}
 }
 
-void	get_next_move(t_game *game, t_bfs_components *comp, t_enemy *enemy, t_positon target)
+void	get_next_move(t_game *game, t_comp *comp, t_enemy *enemy, t_positon target)
 {
 	char		**map;
 	t_positon	next_move;
