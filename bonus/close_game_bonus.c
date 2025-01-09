@@ -6,7 +6,7 @@
 /*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:58 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/31 18:15:21 by bieldojt         ###   ########.fr       */
+/*   Updated: 2025/01/08 23:11:34 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,3 @@ void	finish_game(char *str, t_game *game)
 	ft_putstr_fd(str, 1);
 	destroy_mlx_and_game(game);
 }
-
-

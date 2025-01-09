@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_game_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:29:20 by gda-conc          #+#    #+#             */
-/*   Updated: 2025/01/08 13:21:02 by gda-conc         ###   ########.fr       */
+/*   Updated: 2025/01/08 23:31:21 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	init_mlx(t_game *game)
 	if (game->mlx_ptr == NULL)
 	{
 		free(game->mlx_ptr);
-		error_map("error on initialize mlx",game);
+		error_map("error on initialize mlx", game);
 	}
 	width_win = game->map_game.columns_map * 32;
 	height_win = game->map_game.rows_map * 32;
@@ -30,7 +30,7 @@ void	init_mlx(t_game *game)
 	if (game->win_ptr == NULL)
 	{
 		free(game->mlx_ptr);
-		error_map("Error on creating a window",game);
+		error_map("Error on creating a window", game);
 	}
 }
 
@@ -38,7 +38,7 @@ static t_image	get_img(void *mlx, char *path, t_game *game)
 {
 	t_image	img;
 
-	img.img_ptr = mlx_xpm_file_to_image(mlx, path ,&img.size_x, &img.size_y);
+	img.img_ptr = mlx_xpm_file_to_image(mlx, path, &img.size_x, &img.size_y);
 	if (img.img_ptr == NULL)
 	{
 		free(img.img_ptr);
@@ -54,11 +54,9 @@ void	init_sprites(t_game *game)
 	mlx = game->mlx_ptr;
 	game->wall = get_img(mlx, "textures/wall.xpm", game);
 	game->player = get_img(mlx, "textures/player/Player.xpm", game);
-	game->floor = get_img(mlx,"textures/floor.xpm",game);
-	game->exit_open = get_img(mlx,"textures/open_door.xpm", game);
+	game->floor = get_img(mlx, "textures/floor.xpm", game);
+	game->exit_open = get_img(mlx, "textures/open_door.xpm", game);
 	game->exit_close = get_img(mlx, "textures/closed_door.xpm", game);
-	game->collectible = get_img(mlx,"textures/coletible/chicken.xpm", game);
-	game->enemy = get_img(mlx,"textures/enemy/enemy.xpm", game); // bonus
+	game->collectible = get_img(mlx, "textures/coletible/chicken.xpm", game);
+	game->enemy = get_img(mlx, "textures/enemy/enemy.xpm", game);
 }
-
-

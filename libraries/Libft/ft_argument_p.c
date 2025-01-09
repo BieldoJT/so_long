@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include "libft.h"
 
 int	ft_argument_p(unsigned long address)

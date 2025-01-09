@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   bfs_utils_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 13:40:06 by gda-conc          #+#    #+#             */
-/*   Updated: 2025/01/08 13:43:28 by gda-conc         ###   ########.fr       */
+/*   Updated: 2025/01/08 23:28:56 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-static void	get_directions(t_positon *directions)
+static void	get_directions(t_pos *directions)
 {
 	directions[0].x = 0;
 	directions[0].y = 1;
@@ -44,25 +44,25 @@ static int	verify_direction(t_game *game, int **graph, int x, int y)
 	return (1);
 }
 
-void	bfs_looping(t_game *game, t_queue **queue, t_positon target, t_comp *comp)
+void	bfs_looping(t_game *game, t_queue **queue, t_pos target, t_comp *comp)
 {
-	t_positon	directions[4];
-	t_positon	current;
-	t_positon	neighbor;
-	int			i;
+	t_pos	directions[4];
+	t_pos	current;
+	t_pos	neighbor;
+	int		i;
 
 	get_directions(directions);
 	while (!is_empty(*queue))
 	{
 		current = dequeue(queue);
 		if (current.x == target.x && current.y == target.y)
-			break;
+			break ;
 		i = 0;
 		while (i < 4)
 		{
 			neighbor.x = current.x + directions[i].x;
 			neighbor.y = current.y + directions[i].y;
-			if (verify_direction(game,comp->grafh,neighbor.x,neighbor.y))
+			if (verify_direction(game, comp->grafh, neighbor.x, neighbor.y))
 			{
 				enqueue(queue, neighbor);
 				comp->grafh[neighbor.x][neighbor.y] = 1;
@@ -73,11 +73,11 @@ void	bfs_looping(t_game *game, t_queue **queue, t_positon target, t_comp *comp)
 	}
 }
 
-void	get_next_move(t_game *game, t_comp *comp, t_enemy *enemy, t_positon target)
+void	get_next_move(t_game *game, t_comp *comp, t_enemy *enemy, t_pos target)
 {
 	char		**map;
-	t_positon	next_move;
-	t_positon	step;
+	t_pos		next_move;
+	t_pos		step;
 	int			prev_x;
 	int			prev_y;
 
@@ -93,9 +93,8 @@ void	get_next_move(t_game *game, t_comp *comp, t_enemy *enemy, t_positon target)
 		prev_x = comp->prev_pos[step.x][step.y].x;
 		prev_y = comp->prev_pos[step.x][step.y].y;
 	}
-	if (map[enemy->pos_enemy.x][enemy->pos_enemy.y] == 'G') // update enemy pos
+	if (map[enemy->pos_enemy.x][enemy->pos_enemy.y] == 'G')
 		map[enemy->pos_enemy.x][enemy->pos_enemy.y] = '0';
 	enemy->pos_enemy = next_move;
-	map[next_move.x][next_move.y] = 'G'; // update map
+	map[next_move.x][next_move.y] = 'G';
 }
-

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create_graph_bonus.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/08 23:11:51 by bieldojt          #+#    #+#             */
+/*   Updated: 2025/01/08 23:13:23 by bieldojt         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long_bonus.h"
 
 int	**init_graph(t_game *game)
@@ -10,7 +22,7 @@ int	**init_graph(t_game *game)
 	rows = game->map_game.rows_map;
 	cols = game->map_game.columns_map;
 	i = 0;
-	visited = malloc(rows * sizeof(int*));
+	visited = malloc(rows * sizeof(int *));
 	while (i < rows)
 	{
 		visited[i] = malloc(cols * sizeof(int));
@@ -19,26 +31,26 @@ int	**init_graph(t_game *game)
 	return (visited);
 }
 
-t_positon	**init_position(t_game *game)
+t_pos	**init_position(t_game *game)
 {
-	int			rows;
-	int			cols;
-	int			i;
-	t_positon	**positions;
+	int		rows;
+	int		cols;
+	int		i;
+	t_pos	**positions;
 
 	rows = game->map_game.rows_map;
 	cols = game->map_game.columns_map;
 	i = 0;
-	positions = malloc(cols * sizeof(t_positon*));
+	positions = malloc(cols * sizeof(t_pos *));
 	while (i < rows)
 	{
-		positions[i] = malloc(cols * sizeof(t_positon));
+		positions[i] = malloc(cols * sizeof(t_pos));
 		i++;
 	}
 	return (positions);
 }
 
-void	generate_graph(t_game *game, t_bfs_components *components)
+void	generate_graph(t_game *game, t_comp *components)
 {
 	int	rows;
 	int	cols;
@@ -48,7 +60,7 @@ void	generate_graph(t_game *game, t_bfs_components *components)
 	rows = game->map_game.rows_map;
 	cols = game->map_game.columns_map;
 	i = 0;
-	while(i < rows)
+	while (i < rows)
 	{
 		j = 0;
 		while (j < cols)
@@ -62,14 +74,14 @@ void	generate_graph(t_game *game, t_bfs_components *components)
 	}
 }
 
-void	free_bfs_components(t_bfs_components *components, int rows)
+void	free_bfs_components(t_comp *components, int rows)
 {
 	int	i;
 
 	i = 0;
 	while (i < rows)
 	{
-		free(components->grafh[i]); // Libera cada linha
+		free(components->grafh[i]);
 		free(components->prev_pos[i]);
 		i++;
 	}
@@ -77,5 +89,3 @@ void	free_bfs_components(t_bfs_components *components, int rows)
 	free(components->prev_pos);
 	free(components);
 }
-
-

@@ -6,7 +6,7 @@
 /*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 21:36:00 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/31 19:02:51 by bieldojt         ###   ########.fr       */
+/*   Updated: 2025/01/08 23:20:39 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ void	ft_check_command_line_arguments(int argc, char **argv, t_game *game)
 		error_map("Map file extention is wrong (It should be .ber).", game);
 }
 
-static void verify_alloc(t_game *game)
+static void	verify_alloc(t_game *game)
 {
 	int		i;
 	size_t	len;
 
 	i = 1;
-	game->map_game.columns_map = ft_strlen(game->map_game.map[0]); //get number of colluns!
+	game->map_game.columns_map = ft_strlen(game->map_game.map[0]);
 	len = game->map_game.columns_map;
-	while(i < game->map_game.rows_map)
+	while (i < game->map_game.rows_map)
 	{
 		if (ft_strlen(game->map_game.map[i]) != len)
 			error_map("column size diferent", game);
@@ -47,19 +47,19 @@ static void	verify_new_line(char *map, t_game *game)
 	int	index;
 
 	index = 0;
-	if(map[0] == '\n')
+	if (map[0] == '\n')
 	{
 		free(map);
 		error_map("map with \\n in the beginning", game);
 	}
-	if(map[ft_strlen(map) - 2] == '\n')
+	if (map[ft_strlen(map) - 2] == '\n')
 	{
 		free(map);
 		error_map("map with \\n in the end", game);
 	}
-	while(map[index + 1])
+	while (map[index + 1])
 	{
-		if(map[index] == '\n' && map[index + 1] == '\n')
+		if (map[index] == '\n' && map[index + 1] == '\n')
 		{
 			free(map);
 			error_map("map with \\n in the middle", game);
@@ -68,7 +68,6 @@ static void	verify_new_line(char *map, t_game *game)
 	}
 }
 
-
 void	read_file(char *argv, t_game *game)
 {
 	char	*temp_map;
@@ -76,15 +75,15 @@ void	read_file(char *argv, t_game *game)
 	int		fd_map;
 
 	game->map_game.rows_map = 0;
-	fd_map = open(argv,O_RDONLY);
-	if(fd_map == -1)
-		error_map("The file couldn't be opened. verify name or if the file exists", game);
+	fd_map = open(argv, O_RDONLY);
+	if (fd_map == -1)
+		error_map("The file couldn't be opened. The file exists", game);
 	temp_map = ft_strdup("");
-	while(TRUE)
+	while (TRUE)
 	{
 		line_temp = get_next_line(fd_map);
-		if(!line_temp)
-			break;
+		if (!line_temp)
+			break ;
 		temp_map = join_and_free(temp_map, line_temp);
 		free(line_temp);
 		game->map_game.rows_map++;
@@ -97,5 +96,3 @@ void	read_file(char *argv, t_game *game)
 	free(temp_map);
 	verify_alloc(game);
 }
-
-

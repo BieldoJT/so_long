@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   bfs_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 13:38:38 by gda-conc          #+#    #+#             */
-/*   Updated: 2025/01/08 13:44:43 by gda-conc         ###   ########.fr       */
+/*   Updated: 2025/01/08 23:11:09 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void	bfs_pathfinding(t_game *game, t_enemy *enemy, t_positon target)
+void	bfs_pathfinding(t_game *game, t_enemy *enemy, t_pos target)
 {
-	t_queue				*queue;
+	t_queue	*queue;
 	t_comp	*bfs_components;
 
 	bfs_components = malloc(sizeof(t_comp));

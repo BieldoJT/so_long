@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:40 by gda-conc          #+#    #+#             */
-/*   Updated: 2025/01/08 13:45:11 by gda-conc         ###   ########.fr       */
+/*   Updated: 2025/01/08 23:29:05 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,44 +32,41 @@
 # define KEY_D	100
 # define ESC	65307
 
-
-typedef struct s_position
+typedef struct s_pos
 {
 	int	x;
 	int	y;
-}	t_positon;
+}	t_pos;
 
-typedef struct s_queue {
-	t_positon	pos;
-	struct s_queue *next;
+typedef struct s_queue
+{
+	t_pos			pos;
+	struct s_queue	*next;
 }	t_queue;
-
-
 
 typedef struct s_enemy
 {
-	t_positon	pos_enemy;
+	t_pos			pos_enemy;
 	struct s_enemy	*next;
 }	t_enemy;
 
 typedef struct s_comp
 {
-	int **grafh;
-	t_positon **prev_pos;
+	int		**grafh;
+	t_pos	**prev_pos;
 }	t_comp;
-
 
 typedef struct s_map
 {
-	char		**map;
-	int			rows_map;
-	int			columns_map;
-	int			map_alloc;
-	int			collectible;
-	int			exit_map;
-	int			player_qtd;
-	int			qtd_enemy;
-	t_positon	player;
+	char	**map;
+	int		rows_map;
+	int		columns_map;
+	int		map_alloc;
+	int		collectible;
+	int		exit_map;
+	int		player_qtd;
+	int		qtd_enemy;
+	t_pos	player;
 }	t_map;
 
 typedef struct s_image
@@ -96,63 +93,61 @@ typedef struct s_game
 }	t_game;
 
 //utils.c
-char		*join_and_free(char *str_to_free, char *str_to_add);
-void		free_tab(char **tab);
-t_enemy		*lstlast(t_enemy *lst);
-void		lst_add_back(t_enemy **lst, t_enemy *new);
+char	*join_and_free(char *str_to_free, char *str_to_add);
+void	free_tab(char **tab);
+t_enemy	*lstlast(t_enemy *lst);
+void	lst_add_back(t_enemy **lst, t_enemy *new);
 
 //read_map.c
-void		ft_check_command_line_arguments(int argc, char **argv, t_game *game);
-void		read_file(char *argv, t_game *data);
+void	ft_check_command_line_arguments(int argc, char **argv, t_game *game);
+void	read_file(char *argv, t_game *data);
 
 //print_error.c
-void		error_map(char *message,t_game *game);
-void		error_mlx(char *message, t_game *game);
+void	error_map(char *message, t_game *game);
+void	error_mlx(char *message, t_game *game);
 
 //verify_map.c
-void		check_all_map(t_game *game);
+void	check_all_map(t_game *game);
 
 //verify_path.c
-void		check_path(t_game *game);
+void	check_path(t_game *game);
 
 //start_game.c
-void		init_mlx(t_game *game);
-void		init_sprites(t_game *game);
+void	init_mlx(t_game *game);
+void	init_sprites(t_game *game);
 
 //render_map.c
-int			render(t_game *game);
+int		render(t_game *game);
 
 //play_game
-int			input_game(int keysym, t_game *game);
+int		input_game(int keysym, t_game *game);
 
 //close_game.c
-int			destroy_mlx_and_game(t_game *game);
-void		finish_game(char *str, t_game *game);
+int		destroy_mlx_and_game(t_game *game);
+void	finish_game(char *str, t_game *game);
 
 //enemy_bonus.c
-void		create_lst_enemy(t_game *game);
-void		free_lst(t_enemy *lst);
-void		move_enemy(t_game *game, t_positon player);
+void	create_lst_enemy(t_game *game);
+void	free_lst(t_enemy *lst);
+void	move_enemy(t_game *game, t_pos player);
 
 //queue_funct.c
-t_queue		*init_queue();
-int			is_empty(t_queue *queue);
-void		enqueue(t_queue **queue, t_positon pos);
-t_positon	dequeue(t_queue **queue);
-void		free_queue(t_queue *queue);
+t_queue	*init_queue(void);
+int		is_empty(t_queue *queue);
+void	enqueue(t_queue **queue, t_pos pos);
+t_pos	dequeue(t_queue **queue);
+void	free_queue(t_queue *queue);
 
 //bfs.c
-void		bfs_pathfinding(t_game *game, t_enemy *enemy, t_positon target);
+void	bfs_pathfinding(t_game *game, t_enemy *enemy, t_pos target);
 
 //bfs_utils.c
-void		bfs_looping(t_game *game ,t_queue **queue, t_positon target, t_comp *components);
-void		get_next_move(t_game *game, t_comp *comp, t_enemy *enemy, t_positon target);
+void	bfs_looping(t_game *game, t_queue **queue, t_pos target, t_comp *comp);
+void	get_next_move(t_game *game, t_comp *comp, t_enemy *enemy, t_pos target);
 
 //create_graph
-int			**init_graph(t_game *game);
-t_positon	**init_position(t_game *game);
-void		generate_graph(t_game *game, t_comp *comp);
-void		free_bfs_components(t_comp *comp, int rows);
-
-
+int		**init_graph(t_game *game);
+t_pos	**init_position(t_game *game);
+void	generate_graph(t_game *game, t_comp *comp);
+void	free_bfs_components(t_comp *comp, int rows);
 #endif

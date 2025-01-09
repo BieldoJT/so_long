@@ -6,7 +6,7 @@
 /*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 21:12:12 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/31 19:12:59 by bieldojt         ###   ########.fr       */
+/*   Updated: 2025/01/08 23:15:16 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static t_enemy	*create_node_enemy(int pos_x, int pos_y)
 {
-	t_enemy		*node;
-	t_positon	pos;
+	t_enemy	*node;
+	t_pos	pos;
 
 	pos.x = pos_x;
 	pos.y = pos_y;
@@ -36,14 +36,14 @@ void	create_lst_enemy(t_game *game)
 	list_enemy = NULL;
 	map = game->map_game.map;
 	i = 1;
-	while(i <= game->map_game.rows_map - 1)
+	while (i <= game->map_game.rows_map - 1)
 	{
 		j = 1;
 		while (j <= game->map_game.columns_map - 1)
 		{
-			if(map[i][j] == 'G')
+			if (map[i][j] == 'G')
 			{
-				node = create_node_enemy(i,j);
+				node = create_node_enemy(i, j);
 				lst_add_back(&list_enemy, node);
 			}
 			j++;
@@ -65,17 +65,16 @@ void	free_lst(t_enemy *lst)
 	}
 }
 
-void	move_enemy(t_game *game, t_positon player)
+void	move_enemy(t_game *game, t_pos player)
 {
-	t_enemy *enemy = game->enemies;
+	t_enemy	*enemy;
 
+	enemy = game->enemies;
 	while (enemy)
 	{
 		bfs_pathfinding(game, enemy, player);
 		if (enemy->pos_enemy.x == player.x && enemy->pos_enemy.y == player.y)
-			finish_game("Ohh, you touched the globin, you lose!!!\n",game);
+			finish_game("Ohh, you touched the globin, you lose!!!\n", game);
 		enemy = enemy->next;
 	}
-
 }
-

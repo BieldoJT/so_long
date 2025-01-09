@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_utils_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
+/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:19:13 by gda-conc          #+#    #+#             */
-/*   Updated: 2024/12/21 22:01:17 by gda-conc         ###   ########.fr       */
+/*   Updated: 2025/01/08 23:29:39 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*join_and_free(char *str_to_free, char *str_to_add)
 {
-	char *new_str;
+	char	*new_str;
 
 	new_str = ft_strjoin(str_to_free, str_to_add);
 	free (str_to_free);
@@ -26,7 +26,7 @@ void	free_tab(char **tab)
 	int	i;
 
 	i = 0;
-	while(tab[i])
+	while (tab[i])
 		free(tab[i++]);
 	free(tab);
 }
@@ -47,16 +47,3 @@ t_enemy	*lstlast(t_enemy *lst)
 		lst = lst->next;
 	return (lst);
 }
-
-
-/*void	get_pos_and_qtd(int entity, int pos_x, int pos_y, t_game *game)
-{
-	if (entity == 'P')
-	{
-		game->map_game.player.x = pos_x;
-		game->map_game.player.y = pos_y;
-		game->map_game.player_qtd++;
-	}
-
-
-}*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   verify_map_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bieldojt <bieldojt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 21:41:49 by gda-conc          #+#    #+#             */
-/*   Updated: 2025/01/08 13:37:58 by gda-conc         ###   ########.fr       */
+/*   Updated: 2025/01/08 23:33:29 by bieldojt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,20 +57,20 @@ static void	count_contents(t_game *game)
 	int	y;
 
 	x = 1;
-	while(x < game->map_game.rows_map - 1)
+	while (x < game->map_game.rows_map - 1)
 	{
 		y = 1;
 		while (y < game->map_game.columns_map - 1)
 		{
-			if(game->map_game.map[x][y] == 'C')
+			if (game->map_game.map[x][y] == 'C')
 				game->map_game.collectible++;
-			if(game->map_game.map[x][y] == 'P')
+			if (game->map_game.map[x][y] == 'P')
 			{
 				game->map_game.player.x = x;
 				game->map_game.player.y = y;
 				game->map_game.player_qtd++;
 			}
-			if(game->map_game.map[x][y] == 'E')
+			if (game->map_game.map[x][y] == 'E')
 				game->map_game.exit_map++;
 			if (game->map_game.map[x][y] == 'G')
 				game->map_game.qtd_enemy++;
@@ -82,17 +82,16 @@ static void	count_contents(t_game *game)
 
 static void	verify_content(t_game *game)
 {
-	if ((game->map_game.columns_map <= 2) || (game->map_game.rows_map <= 2))// Valida o tamanho
+	if ((game->map_game.columns_map <= 2) || (game->map_game.rows_map <= 2))
 		error_map("Map has an invalid aaaa", game);
-	if(game->map_game.collectible < 1)
+	if (game->map_game.collectible < 1)
 		error_map("Must have at least one collectible", game);
-	else if(game->map_game.qtd_enemy < 1)
+	else if (game->map_game.qtd_enemy < 1)
 		error_map("Must have at least one enemy", game);
-	else if(game->map_game.exit_map != 1)
+	else if (game->map_game.exit_map != 1)
 		error_map("Must have just one exit", game);
-	else if(game->map_game.player_qtd != 1)
+	else if (game->map_game.player_qtd != 1)
 		error_map("Must have just one starting point", game);
-
 }
 
 void	check_all_map(t_game *game)
@@ -102,5 +101,3 @@ void	check_all_map(t_game *game)
 	count_contents(game);
 	verify_content(game);
 }
-
-
