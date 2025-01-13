@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:40 by gda-conc          #+#    #+#             */
-/*   Updated: 2025/01/08 13:15:04 by gda-conc         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:44:54 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
-# include <X11/X.h>
-# include <X11/keysym.h>
 # include "../libraries/Libft/libft.h"
 # include <stdio.h>
 
