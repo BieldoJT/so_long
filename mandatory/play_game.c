@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:18:43 by gda-conc          #+#    #+#             */
-/*   Updated: 2025/01/08 13:05:48 by gda-conc         ###   ########.fr       */
+/*   Updated: 2025/01/14 09:22:11 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,10 @@ int	input_game(int keysym, t_game *game)
 	pos_player_y = game->map_game.player.y;
 	pos_player_x = game->map_game.player.x;
 	if (keysym == ESC)
+	{
+		ft_putstr_fd("You closed the game\n", 1);
 		destroy_mlx_and_game(game);
+	}
 	if (keysym == KEY_W)
 		move_player(game, pos_player_x - 1, pos_player_y);
 	if (keysym == KEY_S)

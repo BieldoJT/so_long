@@ -8,6 +8,8 @@ BONUS_DIR = ./bonus/
 
 LIBFT = ./libraries/Libft/libft.a
 
+MINILIBX = make_minilibx
+
 CC = cc
 
 CC_FLAGS = -Wall -Werror -Wextra
@@ -47,7 +49,7 @@ BONUS_SRCS = $(addprefix $(BONUS_DIR),\
 				main_bonus.c)
 
 
-all: ${LIBFT} ${NAME}
+all: ${LIBFT} ${MINILIBX} ${NAME}
 
 
 ${NAME}:
@@ -55,7 +57,7 @@ ${NAME}:
 		@echo "\n${NAME} is compiled."
 		@echo
 
-bonus: ${LIBFT} ${NAME_BONUS}
+bonus: ${LIBFT} ${MINILIBX} ${NAME_BONUS}
 
 ${NAME_BONUS}:
 		${CC} ${BONUS_SRCS} ${LIBFT} ${CC_FLAGS} ${MINILIBX_FLAGS} -g -o ${NAME_BONUS}
@@ -65,8 +67,12 @@ ${NAME_BONUS}:
 ${LIBFT}:
 		make bonus -C libraries/Libft
 
+make_minilibx:
+		make -C minilibx-linux/
+
 clean:
 		make clean -C libraries/Libft
+		make clean -C minilibx-linux/
 
 fclean: clean
 		rm -rf ${NAME}
@@ -77,4 +83,4 @@ re: fclean all
 rebonus: fclean ${NAME_BONUS}
 
 
-.PHONY:			all clean fclean re rebonus
+.PHONY:	all bonus make_minilibx clean fclean re rebonus
